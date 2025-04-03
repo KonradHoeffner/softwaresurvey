@@ -1,0 +1,61 @@
+berd	BERD		en			N		0
+daphne4nfdi	DAPHNE4NFDI		en			N		0
+dataplant	DataPlant		en			N		0
+fairagro	FAIRagro		en			N		0
+fairmat	FAIRmat		en			N		0
+ghga	GHGA		en			N		0
+konsortswd	KonsortSWD		en			N		0
+mardi	MaRDI		en			N		0
+nfdi4biodiversity	NFDI4Biodiversity		en			N		0
+nfdi4bioimage	NFDI4BioImage		en			N		0
+nfdi4cat	NFDI4Cat		en			N		0
+nfdi4chem	NFDI4Chem		en			N		0
+nfdi4culture	NFDI4Culture		en			N		0
+nfdi4datascience	NFDI4DataScience		en			N		0
+nfdi4earth	NFDI4Earth		en			N		0
+nfdi4energy	NFDI4Energy		en			N		0
+nfdi4health	NFDI4Health		en			N		0
+nfdi4immuno	NFDI4Immuno		en			N		0
+nfdi4ing	NFDI4Ing		en			N		0
+nfdimatwerk	NFDI+AC0-MatWerk		en			N		0
+nfdi4memory	NFDI4Memory		en			N		0
+nfdi4microbiota	NFDI4Microbiota		en			N		0
+nfdi4objects	NFDI4Objects		en			N		0
+nfdixcs	NFDIxCS		en			N		0
+punch4nfdi	PUNCH4NFDI		en			N		0
+text	Text		en			N		0
+role	What are your roles in the consortium?		en		Y	Y		0
+developer	Software Developer		en			N		0
+researcher	Researcher		en			N		0
+steward	Data Steward		en			N		0
+administrator	Administrator or Software/Service Provider		en			N		0
+manage	Consortium/Task area/ Task Lead, Project manager, +ICY-		en			N		0
+unsure	Unsure/Don't know		en			N		0
+build	We have or are currently building our own software marketplace		en			N		0
+link	We have or are currently linking our software metadata to an existing software marketplace.		en			N		0
+structure	We have some plans to structure our software / metadata but nothing concrete yet.		en			N		0
+informed	We do not have any current plans regarding software marketplaces but would like to stay informed.		en			N		0
+uninterested	We do not have any current plans regarding software marketplaces and are not interested in this topic.		en			N		0
+sustain	+ACI-+ADw-span id+AD0AIgAi-docs+AC0-internal+AC0-guid+AC0-d21745b0+AC0-7fff+AC0-e146+AC0-a2f5+AC0-e8702475b041+ACIAIg- style+AD0AIgAi-font+AC0-size:18pt+ADs-font+AC0-family:Arial, sans+AC0-serif+ADs-color:+ACM-000000+ADs-background+AC0-color:transparent+ADs-font+AC0-weight:700+ADs-font+AC0-style:normal+ADs-font+AC0-variant:normal+ADs-text+AC0-decoration:none+ADs-vertical+AC0-align:baseline+ADs-white+AC0-space:pre+AC0-wrap+ADsAIgAiAD4-How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium?+ADw-/span+AD4-+ACI-		en		Y	Y		0
+none	None, when the research projects end, the software or service will stop working the next time it breaks.		en			N		0
+hope	We stop working on it when the projects end but it's open source. We hope the community (e.g. developers on GitHub) contribute fixes and updates and we at least have someone who regularly checks and merges pull requests.		en			N		0
+community	We actually have active communities maintaining and developing the software.		en			N		0
+we	We ourselves keep contributing even after the projects end.		en			N		0
+disseminate	How do you disseminate your software to get more users?		en		N	Y		0
+socialmedia	Social Media		en			N		0
+webpage	Institute, university or project web page		en			N		0
+publication	Scientific publication		en			N		0
+metadata	Which metadata formats do you describe your research software with (if any)?		en		N	Y		0
+codemeta	CodeMeta, see https://codemeta.github.io/		en			N		0
+citationcff	Citation File Format (CFF), see https://citation+AC0-file+AC0-format.github.io/		en			N		0
+zenodojson	Zenodo.json, see https://developers.zenodo.org/		en			N		0
+ontologies	+ACI-+ADw-span id+AD0AIgAi-docs+AC0-internal+AC0-guid+AC0-2006dfe4+AC0-7fff+AC0-cb7a+AC0-f152+AC0-c07eb5199c79+ACIAIg- style+AD0AIgAi-font+AC0-size:18pt+ADs-font+AC0-family:Arial, sans+AC0-serif+ADs-color:+ACM-000000+ADs-background+AC0-color:transparent+ADs-font+AC0-weight:700+ADs-font+AC0-style:normal+ADs-font+AC0-variant:normal+ADs-text+AC0-decoration:none+ADs-vertical+AC0-align:baseline+ADs-white+AC0-space:pre+AC0-wrap+ADsAIgAiAD4-If you use controlled vocabularies, ontologies or knowledge graphs to describe your research software, please list them below (separated via commas, if multiple).+ADw-/span+AD4-+ACI-		en		N	N		0
+sourcecode	+ADw-p+AD4-Where do you publish your software and its source code?+ADw-/p+AD4-	+ADw-p+AD4-Choose all that apply+ADw-/p+AD4-	en		Y	Y		0
+none	We do not create any research software.		en			N		0
+private	We create research software but do not share the source code with others.		en			N		0
+gitlab	Public GitLab repositories.		en			N		0
+github	github Public GitHub repositories.		en			N		0
+unsure	Not sure/don't know		en			N		0
+Final Questions			en					
+forward	In case you cannot answer some of the questions for your consortium and you know someone who can, please give us their email address below.	If you are unable to answer some of the questions for your consortium but know someone who can, you may voluntarily provide their email address below. Please ensure that you have their consent before sharing their contact information.	en		N	N		0
+contact	Thank you for filling out the survey, it is really important for us and helps us a lot+ACE- Feel free to give us your full name and email in case we have some requests for clarification.	+ACI-+ADw-span id+AD0AIgAi-docs+AC0-internal+AC0-guid+AC0-98b2b335+AC0-7fff+AC0-df7d+AC0-6d6b+AC0-6d485c134517+ACIAIg- style+AD0AIgAi-font+AC0-size:11pt+ADs-font+AC0-family:Arial, sans+AC0-serif+ADs-color:+ACM-000000+ADs-background+AC0-color:transparent+ADs-font+AC0-weight:400+ADs-font+AC0-style:normal+ADs-font+AC0-variant:normal+ADs-text+AC0-decoration:none+ADs-vertical+AC0-align:baseline+ADs-white+AC0-space:pre+AC0-wrap+ADsAIgAiAD4-If you are providing someone else's contact information (e.g., a colleague who can help clarify certain points), please ensure you have their consent before sharing their name and email address with us. .+ADw-/span+AD4-+ACI-	en		N	N		0
