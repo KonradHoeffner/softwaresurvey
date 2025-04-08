@@ -28,31 +28,31 @@ role	What are your roles in the consortium?
 developer	Software Developer
 researcher	Researcher
 steward	Data Steward
-administrator	Administrator or Software/Service Provider
-manage	Consortium/Task area/Task lead/Project manager
+administrator	Administrator	Administrator or Software/Service Provider
+manage	Manager	Consortium/Task area/Task lead/Project manager
 unsure	Unsure/Don't know
-build	We have or are currently building our own software marketplace
-link	We have or are currently linking our software metadata to an existing software marketplace.
-structure	We have some plans to structure our software / metadata but nothing concrete yet.
-informed	We do not have any current plans regarding software marketplaces but would like to stay informed.
-uninterested	We do not have any current plans regarding software marketplaces and are not interested in this topic.
+build	Our own software marketplace	We have or are currently building our own software marketplace
+link	Linking existing marketplace	We have or are currently linking our software metadata to an existing software marketplace.
+structure	Inconcrete plans	We have some plans to structure our software / metadata but nothing concrete yet.
+informed	No plans but interested	We have no plans but would like to stay informed.
+uninterested	No plans and not interested	We do not have any current plans regarding software marketplaces and are not interested in this topic.
 sustain	How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium?
-none	None, when the research projects end, the software or service will stop working the next time it breaks.
-hope	We stop working on it when the projects end but it's open source. We hope the community (e.g. developers on GitHub) contribute fixes and updates and we at least have someone who regularly checks and merges pull requests.
-community	We actually have active communities maintaining and developing the software.
-we	We ourselves keep contributing even after the projects end.
+none	None	None, when the research projects end, the software or service will stop working the next time it breaks.
+hope	Hope the community contributes	We stop working on it when the projects end but it's open source. We hope the community (e.g. developers on GitHub) contribute fixes and updates and we at least have someone who regularly checks and merges pull requests.
+community	Active Communities	We actually have active communities maintaining and developing the software.
+we	Keep contributing after project end	We ourselves keep contributing even after the projects end.
 disseminate	How do you disseminate your software to get more users?
 socialmedia	Social Media
-webpage	Institute, university or project web page
+webpage	Web Page	Institute, university or project web page
 publication	Scientific publication
 metadata	Which metadata formats do you describe your research software with (if any)?
-codemeta	CodeMeta, see https://codemeta.github.io/
-citationcff	Citation File Format (CFF), see https://citation+AC0-file+AC0-format.github.io/
-zenodojson	Zenodo.json, see https://developers.zenodo.org/
+codemeta	CodeMeta	CodeMeta, see https://codemeta.github.io/
+citationcff	Citation File Format (CFF)	Citation File Format (CFF), see https://citation+AC0-file+AC0-format.github.io/
+zenodojson	Zenodo.json	Zenodo.json, see https://developers.zenodo.org/
 ontologies	If you use controlled vocabularies, ontologies or knowledge graphs to describe your research software, please list them below (separated via commas, if multiple).
 sourcecode	Where do you publish your software and its source code?
-none	We do not create any research software.
-private	We create research software but do not share the source code with others.
+none	We don't create software.	We do not create any research software.
+private	We don't share it.	We create research software but do not share the source code with others.
 gitlab	Public GitLab repositories.
 github	Public GitHub repositories.
 unsure	Not sure/don't know
