@@ -13,9 +13,12 @@
 \usepackage{natbib}
 \usepackage{hyperref}
 \usepackage{cleveref}
+\usepackage{rotating}
 \PassOptionsToPackage{pdfborder={0 0 0}}{hyperref} %Für finale gedruckte Ausgabe, ohne hervorgehobene Links
 
-\author{Vorname Name}
+\usepackage{pifont} \newcommand{\cmark}{\ding{51}}
+
+\author{Konrad Höffner}
 
 \begin{document}
 
@@ -41,13 +44,36 @@ NFDI\\
 
 \tableofcontents
 
+\chapter{Executive Summary}
+This report describes the existing state of software metadata and marketplaces within the NFDI as a prerequisite for the work in the nfdi.software project, which builds upon it.
+To obtain an accurate and current picture of the current state, a survey was conducted withhin the NFDI.
+
+\newgeometry{margin=2cm}
+\clearpage
+\begin{sidewaystable}
+\caption{Complete answers without comments.}
+\label{tab:results}
+\tiny
+\setlength{\tabcolsep}{2pt}
+\input{table_results.tex}
+\end{sidewaystable}
+\restoregeometry
+
 \begin{table}
+\caption{Role pairs.}
+\label{tab:role_pairs}
 \input{table_role_pairs.tex}
 \end{table}
+
+%\begin{table}
+%\caption{All.}
+%\label{tab:all}
+%\input{table_all.tex}
+%\end{table}
+
 \begin{table}
-\input{table_all.tex}
-\end{table}
-\begin{table}
+\caption{Role combinatinos.}
+\label{tab:role_combinations}
 \input{table_role_combinations.tex}
 \end{table}
 
@@ -69,10 +95,6 @@ NFDI\\
 \end{table}
 \begin{table}
 \fi
-
-\chapter{Executive Summary}
-This report describes the existing state of software metadata and marketplaces within the NFDI as a prerequisite for the work in the nfdi.software project, which builds upon it.
-To obtain an accurate and current picture of the current state, a survey was conducted withhin the NFDI.
 
 
 \chapter{Abbreviations and Acronyms}
