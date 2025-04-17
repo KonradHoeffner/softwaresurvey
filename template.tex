@@ -44,8 +44,13 @@
 \addtokomafont{chapter}{\color{nfdiblue}}
 \addtokomafont{title}{\color{nfdiblue}}
 
-\author{Author(s) and/or editor(s)}
-\date{Publication date in format: 1 January 1970}
+\newcommand{\thedate}{\today}
+\newcommand{\theauthor}{Jane Doe}
+\newcommand{\theeditor}{Jon Doe}
+\newcommand{\thecontributors}{Jumbo Doe}
+
+\author{\theauthor}
+\date{\thedate}
 \title{Title}
 \titlehead{\vspace{-1.9cm}\hfill\includegraphics[width=13.5cm]{img/nfdi-software.png}\vspace{3cm}}
 
@@ -64,14 +69,29 @@
 %************************************************
 \chapter*{Imprint}\label{ch:introduction}
 %************************************************
-\section{About}
+
+\begin{tabular}{ll}
+Authored by			&\theauthor\\
+Edited by			&\theeditor\\
+Contributions by	&<others>\\
+Date of publication	&\thedate\\
+Version				&<version number, if applicable>\\
+DOI					&\url{https://doi.org/10.xxxx/xxxx}\\
+License				&e.g. This work is licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}\\
+\end{tabular}
+
+\paragraph{About}
 nfdi.software is the basic service to provide a central marketplace to improve access to NFDI research software, addressing the needs of various scientific disciplines for sustainable research software use and development in development for the German National Research Data Infrastructure (Nationale Forschungsdaten-
 infrastruktur – NFDI).
 nfdi.software is part of and funded through Base4NFDI.
 
+~\\
 Funded by DFG as part of NFDI. Grant Number: 521466146
-\includegraphics[width=8cm]{img/base.png}
-\includegraphics[width=8cm]{img/dfg.pdf}
+
+~\\
+\includegraphics[width=6cm]{img/base.png}
+\hfill
+\includegraphics[width=6cm]{img/dfg.pdf}
 
 %************************************************
 \chapter*{Abstract}\label{ch:abstract}
