@@ -1,9 +1,7 @@
 %\documentclass[headsepline,titlepage,twoside,12pt]{report}
 \documentclass[headsepline,titlepage,twoside,12pt,toc=flat,headings=normal]{scrreprt}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage{fontspec}
-\newfontfeature{Microtype}{protrusion=default;expansion=default;}%
+\usepackage{nfdisoftware}
+%\usepackage{fontspec}
 %\setmainfont{texgyrepagella-regular.otf}[%
 %  Microtype,
 %  Ligatures = TeX,
@@ -20,9 +18,7 @@
 %]
 %\usepackage{helvet} % helvetica sans serif font
 %\setmainfont[Ligatures=TeX]{TeX Gyre Heros}
-\usepackage[a4paper,top=3cm,bottom=3cm,left=4cm,right=3cm]{geometry}
 \usepackage{graphicx}
-\usepackage[onehalfspacing]{setspace}
 \usepackage{tabularx}
 \usepackage{tabulary}
 \usepackage{booktabs}
@@ -31,23 +27,13 @@
 \usepackage{lipsum}% for example text, comment out when replaced
 \usepackage{microtype}% optional, looks better but can be commented out if it causes errors e.g. on MiKTeX
 \usepackage{natbib}
-\PassOptionsToPackage{pdfborder={0 0 0},colorlinks=true, linkcolor=nfdiblue, urlcolor=nfdiblue}{hyperref} %Für finale gedruckte Ausgabe, ohne hervorgehobene Links
-\usepackage{hyperref}
 \usepackage{cleveref}
 \usepackage{rotating}
-\usepackage{xcolor}
 %\renewcommand{\familydefault}{\sfdefault} % sans serif for everything except math
 %\usepackage{tgheros} % Load the tgheros package for Helvetica-like font
-\definecolor{nfdiblue}{HTML}{0abaf0}
 %\usepackage{sectsty}
 %\sectionfont{\color{nfdiblue}\Large\bfseries}
 %\chapterfont{\color{nfdiblue}\Large\bfseries}
-\addtokomafont{chapter}{\color{nfdiblue}}
-\addtokomafont{title}{\color{nfdiblue}}
-
-%\let\oldtextbf\textbf% prevent infinite recursive loop
-%\renewcommand{\textbf}[1]{\textcolor{nfdiblue}{\oldtextbf{#1}}}
-\renewcommand{\emph}[1]{\textcolor{nfdiblue}{\textbf{#1}}}
 
 \newcommand{\thetitle}{Title}
 \newcommand{\thedate}{\today}
@@ -58,7 +44,6 @@
 \author{\theauthor}
 \date{\thedate}
 \title{\thetitle}
-\titlehead{\vspace{-0.9cm}\hfill\includegraphics[width=13.5cm]{img/nfdi-software.png}\vspace{3cm}}
 
 \subtitle{Subtitle (optional)}
 

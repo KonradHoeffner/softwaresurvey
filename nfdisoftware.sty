@@ -1,0 +1,22 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{nfdisoftware}[2025/04/30 v0.01 nfdi.software deliverable or other project result, use with scrreprt class]
+
+\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+\newfontfeature{Microtype}{protrusion=default;expansion=default;}%
+
+\usepackage[english]{babel}% assume all nfdi.software publications are in English, if this assumption is false move this out of the style file
+
+\usepackage[a4paper,top=3cm,bottom=3cm,left=4cm,right=3cm]{geometry}
+
+\RequirePackage{xcolor}
+\definecolor{nfdiblue}{HTML}{0abaf0}% slightly turqouise light blue
+\renewcommand{\emph}[1]{\textcolor{nfdiblue}{\textbf{#1}}}% emphasized text is blue and bold instead of in italics
+\addtokomafont{chapter}{\color{nfdiblue}}
+\addtokomafont{title}{\color{nfdiblue}}
+\PassOptionsToPackage{pdfborder={0 0 0},colorlinks=true, linkcolor=nfdiblue, urlcolor=nfdiblue}{hyperref}
+\RequirePackage{hyperref}
+
+\usepackage[onehalfspacing]{setspace}
+
+\titlehead{\vspace{-0.9cm}\hfill\includegraphics[width=13.5cm]{img/nfdi-software.png}\vspace{3cm}}
