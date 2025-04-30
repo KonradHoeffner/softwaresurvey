@@ -1,5 +1,5 @@
 %\documentclass[headsepline,titlepage,twoside,12pt]{report}
-\documentclass[headsepline,titlepage,twoside,12pt]{scrreprt}
+\documentclass[headsepline,titlepage,twoside,12pt,toc=flat,headings=normal]{scrreprt}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{fontspec}
@@ -20,7 +20,7 @@
 %]
 %\usepackage{helvet} % helvetica sans serif font
 %\setmainfont[Ligatures=TeX]{TeX Gyre Heros}
-\usepackage[a4paper,top=4cm,bottom=3cm,left=4cm,right=3cm]{geometry}
+\usepackage[a4paper,top=3cm,bottom=3cm,left=4cm,right=3cm]{geometry}
 \usepackage{graphicx}
 \usepackage[onehalfspacing]{setspace}
 \usepackage{tabularx}
@@ -28,10 +28,11 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{csquotes}
+\usepackage{lipsum}% for example text, comment out when replaced
 \usepackage{microtype}% optional, looks better but can be commented out if it causes errors e.g. on MiKTeX
 \usepackage{natbib}
+\PassOptionsToPackage{pdfborder={0 0 0},colorlinks=true, linkcolor=nfdiblue, urlcolor=nfdiblue}{hyperref} %Für finale gedruckte Ausgabe, ohne hervorgehobene Links
 \usepackage{hyperref}
-\PassOptionsToPackage{pdfborder={0 0 0}}{hyperref} %Für finale gedruckte Ausgabe, ohne hervorgehobene Links
 \usepackage{cleveref}
 \usepackage{rotating}
 \usepackage{xcolor}
@@ -44,15 +45,20 @@
 \addtokomafont{chapter}{\color{nfdiblue}}
 \addtokomafont{title}{\color{nfdiblue}}
 
+%\let\oldtextbf\textbf% prevent infinite recursive loop
+%\renewcommand{\textbf}[1]{\textcolor{nfdiblue}{\oldtextbf{#1}}}
+\renewcommand{\emph}[1]{\textcolor{nfdiblue}{\textbf{#1}}}
+
+\newcommand{\thetitle}{Title}
 \newcommand{\thedate}{\today}
 \newcommand{\theauthor}{Jane Doe}
 \newcommand{\theeditor}{Jon Doe}
-\newcommand{\thecontributors}{Jumbo Doe}
+\newcommand{\thecontributor}{Jumbo Doe}
 
 \author{\theauthor}
 \date{\thedate}
-\title{Title}
-\titlehead{\vspace{-1.9cm}\hfill\includegraphics[width=13.5cm]{img/nfdi-software.png}\vspace{3cm}}
+\title{\thetitle}
+\titlehead{\vspace{-0.9cm}\hfill\includegraphics[width=13.5cm]{img/nfdi-software.png}\vspace{3cm}}
 
 \subtitle{Subtitle (optional)}
 
@@ -60,20 +66,33 @@
 
 \allowdisplaybreaks%Mathe darf auch umbrechen
 
-%\begin{titlepage}
-%\thispagestyle{empty}
-%\end{titlepage}
-
 \maketitle
 
+\iffalse
+\begin{titlepage}
+\centering
+\vspace{-0.9cm}
+\hfill\includegraphics[width=13.5cm]{img/nfdi-software.png}
+\vspace{3cm}
+\vspace*{\fill}
+{\fontsize{24}{30}\selectfont \textbf{\thetitle} \par}
+\vspace{2cm}
+{\large \theauthor \par}
+\vspace{1cm}
+{\large \thedate \par}
+\vspace{\fill}
+<Title addon and/or publication type (optional)>
+\end{titlepage}
+\fi
+
 %************************************************
-\chapter*{Imprint}\label{ch:introduction}
+\chapter*{Imprint}\label{ch:imprint}
 %************************************************
 
 \begin{tabular}{ll}
 Authored by			&\theauthor\\
 Edited by			&\theeditor\\
-Contributions by	&<others>\\
+Contributions by	&\thecontributor\\
 Date of publication	&\thedate\\
 Version				&<version number, if applicable>\\
 DOI					&\url{https://doi.org/10.xxxx/xxxx}\\
@@ -81,9 +100,9 @@ License				&e.g. This work is licensed under \href{https://creativecommons.org/l
 \end{tabular}
 
 \paragraph{About}
-nfdi.software is the basic service to provide a central marketplace to improve access to NFDI research software, addressing the needs of various scientific disciplines for sustainable research software use and development in development for the German National Research Data Infrastructure (Nationale Forschungsdaten-
-infrastruktur – NFDI).
-nfdi.software is part of and funded through Base4NFDI.
+\emph{nfdi.software} is the basic service to provide a central marketplace to improve access to NFDI research software,
+addressing the needs of various scientific disciplines for sustainable research software use and development in development for the German National Research Data Infrastructure (\emph{Nationale Forschungsdateninfrastruktur --- NFDI}).
+\emph{nfdi.software} is part of and funded through \emph{Base4NFDI}.
 
 ~\\
 Funded by DFG as part of NFDI. Grant Number: 521466146
@@ -119,9 +138,11 @@ $\ldots$				&$\ldots$\\
 \tableofcontents
 
 %************************************************
-\chapter{Introduction}\label{ch:introduction}
+\chapter{Heading 1}\label{ch:firstchapter}
 %************************************************
-
+\section{Heading 2}
+\subsection{Heading 3}
+\lipsum[1-5]
 %************************************************
 \chapter{Another chapter}\label{ch:anotherchapter}
 %************************************************
