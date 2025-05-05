@@ -1,52 +1,76 @@
-\documentclass[headsepline,titlepage,twoside,12pt]{report}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage[a4paper,top=4cm,bottom=3cm,left=4cm,right=3cm]{geometry}
-\usepackage{graphicx}
-\usepackage[onehalfspacing]{setspace}
-\usepackage{tabularx}
-\usepackage{tabulary}
-\usepackage{booktabs}
-\usepackage{amsmath}
-\usepackage{csquotes}
+\documentclass[headsepline,titlepage,twoside,12pt,toc=flat,headings=normal]{scrreprt}
+\usepackage{nfdisoftware}
+\usepackage{booktabs}% nice tables with \toprule, \midrule and \bottomrule
+\usepackage{csquotes}% \enquote command
+\usepackage{lipsum}% for example text, comment out when replaced
 \usepackage{microtype}% optional, looks better but can be commented out if it causes errors e.g. on MiKTeX
 \usepackage{natbib}
-\usepackage{hyperref}
-\usepackage{cleveref}
+\usepackage{cleveref}%\cref command for floats like tables
 \usepackage{rotating}
-\PassOptionsToPackage{pdfborder={0 0 0}}{hyperref} %Für finale gedruckte Ausgabe, ohne hervorgehobene Links
-
 \usepackage{pifont} \newcommand{\cmark}{\ding{51}}
 
-\author{Konrad Höffner}
+% Replace values ***
+\newcommand{\thetitle}{Descriptive review of already existing solutions, plans and policies regarding software marketplaces in NFDI consortias}
+\newcommand{\thedate}{\today}
+\newcommand{\theauthor}{Konrad Höffner}
+\newcommand{\editor}{Please add here}
+\newcommand{\contributor}{Matthias Löbe}
+\newcommand{\doi}{10.xxxx/xxxx}
+\newcommand{\version}{1.0}
+\newcommand{\licensename}{CC BY 4.0}
+\newcommand{\licenseuri}{https://creativecommons.org/licenses/by/4.0/}
+% *****************
+
+\author{\theauthor}
+\date{\thedate}
+\title{\thetitle}
+\subtitle{Deliverable 2.2}
 
 \begin{document}
 
-\allowdisplaybreaks%Mathe darf auch umbrechen
+\maketitle
+\imprint
 
-\begin{titlepage}
-\thispagestyle{empty}
-\begin{center}
+%************************************************
+\chapter*{Abstract}\label{ch:abstract}
+\addcontentsline{toc}{chapter}{Abstract}
 
-{\large nfdi.software\\[1mm]}
-NFDI\\
-
-\vspace{2cm}
-
-{\large\textbf{Descriptive review of already existing solutions, plans and policies regarding software marketplaces in NFDI consortias}}\\
-\vspace*{4cm}
-
-
-{\Huge\textbf{Deliverable 2.2}}\\
-
-\end{center}
-\end{titlepage}
-
-\tableofcontents
-
-\chapter{Executive Summary}
 This report describes the existing state of software metadata and marketplaces within the NFDI as a prerequisite for the work in the nfdi.software project, which builds upon it.
 To obtain an accurate and current picture of the current state, a survey was conducted withhin the NFDI.
+%************************************************
+
+%************************************************
+\chapter*{Abbreviations}% use like \ac{NFDI} in text
+\addcontentsline{toc}{chapter}{Abbreviations}
+%************************************************
+
+\begin{acronym}
+\acro{NFDI}{Nationale Forschungsdateninfrastruktur}
+\end{acronym}
+\acused{NFDI}
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{\contentsname}
+%\pdfbookmark[1]{\contentsname}{tableofcontents}
+
+%************************************************
+\chapter{Introduction}\label{ch:introduction}
+%************************************************
+
+%************************************************
+\chapter{Method}\label{ch:introduction}
+%************************************************
+
+%************************************************
+\chapter{Data Description}\label{ch:introduction}
+%************************************************
+* removal of duplicates and dummy entries
+
+\section{Questions}
+
+%************************************************
+\chapter{Survey Analysis, Results and Criteria}\label{ch:introduction}
+%************************************************
 
 \newgeometry{margin=2cm}
 \clearpage
@@ -96,47 +120,9 @@ To obtain an accurate and current picture of the current state, a survey was con
 \begin{table}
 \fi
 
-
-\chapter{Abbreviations and Acronyms}
-\begin{tabularx}{\textwidth}{lX}
-\toprule
-\textrm{Begriff}			&\textrm{Erklärung des Begriffs}\\
-\midrule
-NFDI					&Nationale Forschungsdateninfrastruktur\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-\bottomrule
-\end{tabularx}
-
 %************************************************
 \chapter{Introduction}\label{ch:introduction}
 %************************************************
-
-%************************************************
-\chapter{Introduction}\label{ch:introduction}
-%************************************************
-
-%************************************************
-\chapter{Method}\label{ch:introduction}
-%************************************************
-
-%************************************************
-\chapter{Data Description}\label{ch:introduction}
-%************************************************
-* removal of duplicates and dummy entries
-
-\section{Questions}
-
-%************************************************
-\chapter{Survey Analysis, Results and Criteria}\label{ch:introduction}
-%************************************************
-
 %************************************************
 \chapter{Recommendations}\label{ch:introduction}
 %************************************************
@@ -153,7 +139,7 @@ $\ldots$				&$\ldots$\\
 \bibliography{beispiel}
 
 %************************************************
-\chapter{Appendix}\label{ch:introduction}
+\chapter{Appendix}\label{ch:appendix}
 %************************************************
 
 \end{document}
