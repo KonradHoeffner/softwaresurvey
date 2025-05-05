@@ -1,7 +1,5 @@
-%\documentclass[headsepline,titlepage,twoside,12pt]{report}
 \documentclass[headsepline,titlepage,twoside,12pt,toc=flat,headings=normal]{scrreprt}
 \usepackage{nfdisoftware}
-\usepackage{tabularx}
 \usepackage{booktabs}% nice tables with \toprule, \midrule and \bottomrule
 \usepackage{csquotes}% \enquote command
 \usepackage{lipsum}% for example text, comment out when replaced
@@ -9,75 +7,46 @@
 \usepackage{natbib}
 \usepackage{cleveref}%\cref command for floats like tables
 
-% Replace those ***
+% Replace values ***
 \newcommand{\thetitle}{Insert your title here}
 \newcommand{\thedate}{\today}
 \newcommand{\theauthor}{Jane Doe}
-\newcommand{\theeditor}{Jon Doe}
-\newcommand{\thecontributor}{Jumbo Doe}
+\newcommand{\editor}{Jon Doe}
+\newcommand{\contributor}{Jumbo Doe}
+\newcommand{\doi}{10.xxxx/xxxx}
+\newcommand{\version}{1.0}
+\newcommand{\licensename}{CC BY 4.0}
+\newcommand{\licenseuri}{https://creativecommons.org/licenses/by/4.0/}
 % *****************
 
 \author{\theauthor}
 \date{\thedate}
 \title{\thetitle}
-
 \subtitle{Subtitle (optional)}
 
 \begin{document}
 
 \maketitle
-
-%************************************************
-\chapter*{Imprint}\label{ch:imprint}
-%************************************************
-
-\begin{tabular}{ll}
-Authored by			&\theauthor\\
-Edited by			&\theeditor\\
-Contributions by	&\thecontributor\\
-Date of publication	&\thedate\\
-Version				&<version number, if applicable>\\
-DOI					&\url{https://doi.org/10.xxxx/xxxx}\\
-License				&e.g. This work is licensed under \href{https://creativecommons.org/licenses/by/4.0/}{CC BY 4.0}\\
-\end{tabular}
-
-\paragraph{About}
-\emph{nfdi.software} is the basic service to provide a central marketplace to improve access to NFDI research software,
-addressing the needs of various scientific disciplines for sustainable research software use and development in development for the German National Research Data Infrastructure (\emph{Nationale Forschungsdateninfrastruktur---NFDI}).
-\emph{nfdi.software} is part of and funded through \emph{Base4NFDI}.
-
-~\\
-Funded by DFG as part of NFDI. Grant Number: 521466146
-
-~\\
-\includegraphics[width=6cm]{img/base.png}
-\hfill
-\includegraphics[width=6cm]{img/dfg.pdf}
+\imprint
 
 %************************************************
 \chapter*{Abstract}\label{ch:abstract}
+\addcontentsline{toc}{chapter}{Abstract}
 %************************************************
 
 %************************************************
-\chapter*{Abbreviations}
-\begin{tabularx}{\textwidth}{lX}
-%\toprule
-%\textrm{Begriff}			&\textrm{Erklärung des Begriffs}\\
-%\midrule
-NFDI					&Nationale Forschungsdateninfrastruktur\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-$\ldots$				&$\ldots$\\
-%\bottomrule
-\end{tabularx}
+\chapter*{Abbreviations}% use like \ac{NFDI} in text
+\addcontentsline{toc}{chapter}{Abbreviations}
 %************************************************
+
+\begin{acronym}
+\acro{NFDI}{Nationale Forschungsdateninfrastruktur}
+\end{acronym}
+\acused{NFDI}
 
 \tableofcontents
+\addcontentsline{toc}{chapter}{\contentsname}
+%\pdfbookmark[1]{\contentsname}{tableofcontents}
 
 %************************************************
 \chapter{Heading 1}\label{ch:firstchapter}
@@ -91,16 +60,16 @@ $\ldots$				&$\ldots$\\
 %************************************************
 
 \begin{table}[ht]
-\begin{tabularx}{\textwidth}{lX}
+\begin{tabulary}{\textwidth}{lL}
 \toprule
-tabularx column letter	&meaning\\
+tabulary column letter	&meaning\\
 \midrule
 l						&left-justified, uses exactly as much space as the longest row in this column \\
-X						&will break into multiple lines when there is too much content\\
-others					&see the tabularx package docs\\
+L						&left-justified, will break into multiple lines when there is too much content\\
+others					&see the tabulary package docs\\
 \bottomrule
-\end{tabularx}
-\caption{An exemplary table using tabularx and booktabs commands.}
+\end{tabulary}
+\caption{An exemplary table using tabulary and booktabs commands.}
 \label{tab:example}
 \end{table}
 
@@ -115,7 +84,7 @@ Inside a sentence refer to it with lower case \verb+cref+ instead, like \cref{ta
 %************************************************
 
 \bibliographystyle{plainnat}%Options: "plainnat" for English text, "dinat" for German text to conform to DIN 1505 norm.
-%\bibliography{beispiel}
+\bibliography{beispiel}
 
 %************************************************
 \chapter{Appendix}\label{ch:appendix}

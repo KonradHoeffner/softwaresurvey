@@ -3,7 +3,6 @@
 
 \usepackage[utf8]{inputenc}
 
-\usepackage{graphicx}
 \usepackage[english]{babel}% assume all nfdi.software publications are in English, if this assumption is false move this out of the style file
 %\usepackage{amsmath}
 %\allowdisplaybreaks%Mathe darf auch umbrechen
@@ -44,22 +43,38 @@
 \RequirePackage{hyperref}
 
 \usepackage[onehalfspacing]{setspace}
+\RequirePackage{tabulary}
+\RequirePackage{acronym}
 
+\RequirePackage{graphicx}
 \titlehead{\vspace{-0.9cm}\hfill\includegraphics[width=13.5cm]{img/nfdi-software.png}\vspace{3cm}}
 
-\iffalse
-\begin{titlepage}
-\centering
-\vspace{-0.9cm}
-\hfill\includegraphics[width=13.5cm]{img/nfdi-software.png}
-\vspace{3cm}
-\vspace*{\fill}
-{\fontsize{24}{30}\selectfont \textbf{\thetitle} \par}
-\vspace{2cm}
-{\large \theauthor \par}
-\vspace{1cm}
-{\large \thedate \par}
-\vspace{\fill}
-<Title addon and/or publication type (optional)>
-\end{titlepage}
-\fi
+\newcommand{\grant}{521466146}
+\newcommand{\imprint}
+{
+\chapter*{Imprint}\label{ch:imprint}
+
+\begin{tabulary}{\textwidth}{lL}
+Title				&\thetitle\\
+Authored by			&\theauthor\\
+Edited by			&\editor\\
+Contributions by	&\contributor\\
+Date of publication	&\thedate\\
+Version				&\version\\
+DOI					&\url{https://doi.org/\doi}\\
+License				&This work is licensed under \href{\licenseuri}{\licensename}\\
+\end{tabulary}
+
+\paragraph{About}
+\emph{nfdi.software} is the basic service to provide a central marketplace to improve access to NFDI research software,
+addressing the needs of various scientific disciplines for sustainable research software use and development in development for the German National Research Data Infrastructure (\emph{Nationale Forschungsdateninfrastruktur---NFDI}).
+\emph{nfdi.software} is part of and funded through \emph{Base4NFDI}.
+
+~\\
+Funded by DFG as part of NFDI.
+Grant Number: \href{https://gepris.dfg.de/gepris/projekt/\grant}{\grant}.
+\vfill
+\includegraphics[width=6cm]{img/base.png}
+\hfill
+\includegraphics[width=6cm]{img/dfg.pdf}
+}
