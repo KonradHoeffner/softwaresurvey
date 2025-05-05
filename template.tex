@@ -1,45 +1,21 @@
 %\documentclass[headsepline,titlepage,twoside,12pt]{report}
 \documentclass[headsepline,titlepage,twoside,12pt,toc=flat,headings=normal]{scrreprt}
 \usepackage{nfdisoftware}
-%\usepackage{fontspec}
-%\setmainfont{texgyrepagella-regular.otf}[%
-%  Microtype,
-%  Ligatures = TeX,
-%  BoldFont = texgyrepagella-bold.otf,
-%  ItalicFont = texgyrepagella-italic.otf,
-%  BoldItalicFont = texgyrepagella-bolditalic.otf,
-%]%
-%\setmainfont{texgyreheros-regular.otf}[
-%    Microtype,
-%    Ligatures = TeX,
-%    BoldFont = texgyreheros-bold.otf,
-%    ItalicFont = texgyreheros-italic.otf,
-%    BoldItalicFont = texgyreheros-bolditalic.otf,
-%]
-%\usepackage{helvet} % helvetica sans serif font
-%\setmainfont[Ligatures=TeX]{TeX Gyre Heros}
-\usepackage{graphicx}
 \usepackage{tabularx}
-\usepackage{tabulary}
-\usepackage{booktabs}
-\usepackage{amsmath}
-\usepackage{csquotes}
+\usepackage{booktabs}% nice tables with \toprule, \midrule and \bottomrule
+\usepackage{csquotes}% \enquote command
 \usepackage{lipsum}% for example text, comment out when replaced
 \usepackage{microtype}% optional, looks better but can be commented out if it causes errors e.g. on MiKTeX
 \usepackage{natbib}
-\usepackage{cleveref}
-\usepackage{rotating}
-%\renewcommand{\familydefault}{\sfdefault} % sans serif for everything except math
-%\usepackage{tgheros} % Load the tgheros package for Helvetica-like font
-%\usepackage{sectsty}
-%\sectionfont{\color{nfdiblue}\Large\bfseries}
-%\chapterfont{\color{nfdiblue}\Large\bfseries}
+\usepackage{cleveref}%\cref command for floats like tables
 
-\newcommand{\thetitle}{Title}
+% Replace those ***
+\newcommand{\thetitle}{Insert your title here}
 \newcommand{\thedate}{\today}
 \newcommand{\theauthor}{Jane Doe}
 \newcommand{\theeditor}{Jon Doe}
 \newcommand{\thecontributor}{Jumbo Doe}
+% *****************
 
 \author{\theauthor}
 \date{\thedate}
@@ -49,26 +25,7 @@
 
 \begin{document}
 
-\allowdisplaybreaks%Mathe darf auch umbrechen
-
 \maketitle
-
-\iffalse
-\begin{titlepage}
-\centering
-\vspace{-0.9cm}
-\hfill\includegraphics[width=13.5cm]{img/nfdi-software.png}
-\vspace{3cm}
-\vspace*{\fill}
-{\fontsize{24}{30}\selectfont \textbf{\thetitle} \par}
-\vspace{2cm}
-{\large \theauthor \par}
-\vspace{1cm}
-{\large \thedate \par}
-\vspace{\fill}
-<Title addon and/or publication type (optional)>
-\end{titlepage}
-\fi
 
 %************************************************
 \chapter*{Imprint}\label{ch:imprint}
@@ -86,7 +43,7 @@ License				&e.g. This work is licensed under \href{https://creativecommons.org/l
 
 \paragraph{About}
 \emph{nfdi.software} is the basic service to provide a central marketplace to improve access to NFDI research software,
-addressing the needs of various scientific disciplines for sustainable research software use and development in development for the German National Research Data Infrastructure (\emph{Nationale Forschungsdateninfrastruktur --- NFDI}).
+addressing the needs of various scientific disciplines for sustainable research software use and development in development for the German National Research Data Infrastructure (\emph{Nationale Forschungsdateninfrastruktur---NFDI}).
 \emph{nfdi.software} is part of and funded through \emph{Base4NFDI}.
 
 ~\\
@@ -127,10 +84,30 @@ $\ldots$				&$\ldots$\\
 %************************************************
 \section{Heading 2}
 \subsection{Heading 3}
-\lipsum[1-5]
+\lipsum[1-5]% remove this and comment out the \usepackage{lipsum} line at the top
+
 %************************************************
 \chapter{Another chapter}\label{ch:anotherchapter}
 %************************************************
+
+\begin{table}[ht]
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+tabularx column letter	&meaning\\
+\midrule
+l						&left-justified, uses exactly as much space as the longest row in this column \\
+X						&will break into multiple lines when there is too much content\\
+others					&see the tabularx package docs\\
+\bottomrule
+\end{tabularx}
+\caption{An exemplary table using tabularx and booktabs commands.}
+\label{tab:example}
+\end{table}
+
+\Cref{tab:example} shows how you create and refer to a table.
+It gets placed automatically but you can specify preferences like [ht] for \enquote{here} or \enquote{top}.
+Use \verb+\enquote+ instead of \verb+"+ for quotation marks.
+Inside a sentence refer to it with lower case \verb+cref+ instead, like \cref{tab:example}.
 
 
 %************************************************
@@ -138,7 +115,7 @@ $\ldots$				&$\ldots$\\
 %************************************************
 
 \bibliographystyle{plainnat}%Options: "plainnat" for English text, "dinat" for German text to conform to DIN 1505 norm.
-\bibliography{beispiel}
+%\bibliography{beispiel}
 
 %************************************************
 \chapter{Appendix}\label{ch:appendix}

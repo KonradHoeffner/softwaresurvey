@@ -2,10 +2,36 @@
 \ProvidesPackage{nfdisoftware}[2025/04/30 v0.01 nfdi.software deliverable or other project result, use with scrreprt class]
 
 \usepackage[utf8]{inputenc}
-\usepackage{fontspec}
-\newfontfeature{Microtype}{protrusion=default;expansion=default;}%
 
+\usepackage{graphicx}
 \usepackage[english]{babel}% assume all nfdi.software publications are in English, if this assumption is false move this out of the style file
+%\usepackage{amsmath}
+%\allowdisplaybreaks%Mathe darf auch umbrechen
+%\usepackage{rotating}
+%\renewcommand{\familydefault}{\sfdefault}% sans serif for everything except math
+%\usepackage{tgheros}% Load the tgheros package for Helvetica-like font
+%\usepackage{sectsty}
+%\sectionfont{\color{nfdiblue}\Large\bfseries}
+%\chapterfont{\color{nfdiblue}\Large\bfseries}
+
+\usepackage{fontspec}
+%\setmainfont{texgyrepagella-regular.otf}[%
+%  Microtype,
+%  Ligatures = TeX,
+%  BoldFont = texgyrepagella-bold.otf,
+%  ItalicFont = texgyrepagella-italic.otf,
+%  BoldItalicFont = texgyrepagella-bolditalic.otf,
+%]%
+%\setmainfont{texgyreheros-regular.otf}[
+%    Microtype,
+%    Ligatures = TeX,
+%    BoldFont = texgyreheros-bold.otf,
+%    ItalicFont = texgyreheros-italic.otf,
+%    BoldItalicFont = texgyreheros-bolditalic.otf,
+%]
+%\usepackage{helvet} % helvetica sans serif font
+%\setmainfont[Ligatures=TeX]{TeX Gyre Heros}
+\newfontfeature{Microtype}{protrusion=default;expansion=default;}%
 
 \usepackage[a4paper,top=3cm,bottom=3cm,left=4cm,right=3cm]{geometry}
 
@@ -20,3 +46,20 @@
 \usepackage[onehalfspacing]{setspace}
 
 \titlehead{\vspace{-0.9cm}\hfill\includegraphics[width=13.5cm]{img/nfdi-software.png}\vspace{3cm}}
+
+\iffalse
+\begin{titlepage}
+\centering
+\vspace{-0.9cm}
+\hfill\includegraphics[width=13.5cm]{img/nfdi-software.png}
+\vspace{3cm}
+\vspace*{\fill}
+{\fontsize{24}{30}\selectfont \textbf{\thetitle} \par}
+\vspace{2cm}
+{\large \theauthor \par}
+\vspace{1cm}
+{\large \thedate \par}
+\vspace{\fill}
+<Title addon and/or publication type (optional)>
+\end{titlepage}
+\fi
