@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+authors:
+  - family-names: Höffner
+    given-names: Konrad
+    orcid: https://orcid.org/0000-0001-7358-3217
+title: "nfdi.software Software Marketplace Survey Results"
+version: 0.1.0
+date-released: "TBD"
+url: "https://github.com/KonradHoeffner/softwaresurvey"
+repository-code: "https://github.com/KonradHoeffner/softwaresurvey"
+license: "To be determined"
+keywords:
+  - NFDI
+  - nfdi.software
+  - Survey
+  - Descriptive Statistics
+  - software marketplace
+  - Jupyter
+identifiers:
+  - type: "doi"
+    value: "TBD"
