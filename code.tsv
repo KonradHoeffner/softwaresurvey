@@ -24,6 +24,8 @@ nfdi4objects	NFDI4Objects
 nfdixcs	NFDIxCS
 punch4nfdi	PUNCH4NFDI
 text	Text
+consortium	Which consortium do you report the solutions for?
+solutions	Which solutions and plans does your consortium have regarding research software marketplaces?
 role	What are your roles in the consortium?
 developer	Software Developer
 researcher	Researcher
@@ -36,7 +38,7 @@ link	Linking existing marketplace	We have or are currently linking our software 
 structure	Inconcrete plans	We have some plans to structure our software / metadata but nothing concrete yet.
 informed	No plans but interested	We have no plans but would like to stay informed.
 uninterested	No plans and not interested	We do not have any current plans regarding software marketplaces and are not interested in this topic.
-sustain	How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium?
+sustain	How do you intend to ensure the sustainability of the services and software in your consortium?	How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium?
 none	None	None, when the research projects end, the software or service will stop working the next time it breaks.
 hope	Hope the community contributes	We stop working on it when the projects end but it's open source. We hope the community (e.g. developers on GitHub) contribute fixes and updates and we at least have someone who regularly checks and merges pull requests.
 community	Active Communities	We actually have active communities maintaining and developing the software.
