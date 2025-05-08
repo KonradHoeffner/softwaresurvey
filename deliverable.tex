@@ -18,10 +18,16 @@
 \newcommand{\contributor}{\orcid{Lisa Schwier}{0009-0006-0299-4813}, \orcid{Neelam Vishen}{0009-0004-8940-3312}, \orcid{Martin Reinhardt}{0000-0002-1213-5135}, \orcid{Beate Hetenyi}{0009-0006-0497-2327}}
 \newcommand{\doi}{10.xxxx/xxxx}
 \newcommand{\version}{1.0}
-\newcommand{\licensename}{CC BY 4.0}
+\newcommand{\licensename}{CC BY 4.0 (TBD, I would prefer CC 0)}
 \newcommand{\licenseuri}{https://creativecommons.org/licenses/by/4.0/}
 % *****************
-
+\newcommand{\question}[1]{\subsubsection{#1}}
+% multiple choice checkboxes
+\usepackage{enumitem,amssymb}
+\newlist{answers}{itemize}{2}
+\setlist[answers]{label=$\square$}
+\newcommand{\otherbox}{\fbox{\phantom{This is how big an answer would be.}}}
+% *****************
 \author{\theauthor}
 \date{\thedate}
 \title{\thetitle}
@@ -50,19 +56,237 @@ To obtain an accurate and current picture of the current state, a survey was con
 \end{acronym}
 \acused{NFDI}
 
+\setcounter{tocdepth}{1}% no subsection in TOC
 \tableofcontents
 \addcontentsline{toc}{chapter}{\contentsname}
 %\pdfbookmark[1]{\contentsname}{tableofcontents}
 
 %************************************************
-\chapter{Introduction}\label{ch:introduction}
+%\chapter{Introduction}\label{ch:introduction}
 %************************************************
 
 %************************************************
-\chapter{Data Description}\label{ch:introduction}
+\chapter{Questionnaire}\label{ch:questionnaire}
 %************************************************
+
+%\section{Survey on software marketplace usage}
+
+\section{Description}
+\subsection{English}
+This survey is conducted as part of the nfdi.software project to gain insights into existing research software marketplaces, metadata, and sustainability strategies within the NFDI consortia.
+The responses will contribute to Deliverable D2.2 as well as other project-related activities.
+The survey questions are in English but this description and the data protection guidelines at the end are also translated to German.
+
+\subsection{German}
+Diese Umfrage wird im Rahmen des nfdi.software-Projekts durchgeführt, um Einblicke in bestehende Forschungssoftware-Marktplätze, Metadaten und Nachhaltigkeitsstrategien innerhalb der NFDI-Konsortien zu gewinnen.
+Die Antworten fließen in das Deliverable D2.2 sowie in weitere projektbezogene Aktivitäten ein.
+
+\section{Welcome Message}
+nfdi.software is a Base4NFDI funded project that plans to design, implement and test a central marketplace for research software in Germany which provides aid in finding software collected from distributed metadata repositories (e.g. RSE, physics.tools), related publications and code repositories (BRE).
+The aim is to improve the accessibility of NFDI research data and its access with specific software packages and enable more complex (re)use of metadata and software.
+The need for a central access portal for research software of the NFDI consortia arises from the growing need of the scientific disciplines of the cultural sciences, humanities and social sciences, engineering and the natural and life sciences to ensure the sustainable use and further development of research software.
+nfdi.software is intended to link and coordinate independent individual developments from these areas in a federated data infrastructure.
+The networking and contextualisation of research software opens up the potential to use research data sustainably and to expand the spectrum of analysis and processing of research data.
+
+We are currently in the initialization phase, so now is your chance to tell us about your existing research software, metadata, your specific needs and potentially existing marketplaces and registries!
+Your responses are critical to design our infrastructure and prevent duplicate work, and we will share the evaluated responses with you, so please fill out the short survey (5-10 minutes)!
+
+\section{Data Protection Declaration}\label{english-data-protection-declaration}
+
+\subsection{English}
+
+\subsubsection{What Data We Collect \& Why}
+\emph{General survey responses} (aggregated and anonymized) are used for project evaluation and may be included in reports or publications.
+
+\emph{Optional personal data} (name, email address) is only collected if you voluntarily provide it.
+This allows us to follow up in case of any uncertainties.
+
+\subsubsection{How Your Data is Used \& Shared}
+Survey results are analyzed only in aggregated and anonymized form.
+Individual responses will not be publicly linked to any person.
+Consortium names may be published in reports or publications, but Individual names will remain confidential unless you explicitly agree to their inclusion.
+Names and email addresses are used solely for internal inquiries and will not be shared with third parties.
+
+\subsubsection{Data Storage \& Retention}\label{data-storage-retention}
+Survey responses will be securely stored and deleted once it is no longer required for the project.
+If results are used in publications, this will be done in a fully anonymized manner, except for consortium names where applicable.
+
+\subsubsection{Your Rights \& Contact Information}\label{your-rights-contact-information}
+Participation is voluntary, and you may withdraw your consent at any time.
+If you wish to request the deletion of your personal data, please contact us at \href{mailto:konrad.hoeffner@uni-leipzig.de}{konrad.hoeffner@uni-leipzig.de}.
+By completing the survey, you confirm that you have read and understood this privacy statement.
+
+\subsection{German}
+
+\subsubsection{Welche Daten wir erheben \& warum}\label{welche-daten-wir-erheben-warum}
+Allgemeine Umfrageantworten (aggregiert und anonymisiert) werden zur Projektbewertung genutzt und können in Berichten oder Publikationen einfließen.
+
+Optionale personenbezogene Daten (Name, E-Mail-Adresse) werden nur erhoben, wenn Sie diese freiwillig angeben.
+Dies ermöglicht uns, bei Unklarheiten gezielt nachzufragen.
+\subsubsection{Wie Ihre Daten verwendet und weitergegeben werden}
+Die Umfrageergebnisse werden nur in aggregierter und anonymisierter Form analysiert.
+Einzelne Antworten werden nicht öffentlich einer Person zugeordnet.
+Konsortiennamen können in Berichten und Publikationen veröffentlicht werden aber aber Namen von Personen können nur dann veröffentlicht werden, wenn Sie dem explizit zustimmen.
+Namen und E-Mail-Adressen werden ausschließlich intern für Rückfragen verwendet und nicht an Dritte weitergegeben.
+
+
+\subsubsection{Speicherung \& Aufbewahrung der Daten}
+Die Umfrageantworten werden sicher gespeichert und wenn sie nicht mehr gebraucht werden gelöscht.
+Falls die Ergebnisse in Publikationen genutzt werden, erfolgt dies in vollständig anonymisierter Form mit Ausnahme gegebenenfalls der Namen von Konsortien.
+
+
+\subsubsection{Ihre Rechte \& Kontaktmöglichkeiten}
+Die Teilnahme ist freiwillig, und Sie können Ihre Einwilligung jederzeit widerrufen.
+Wenn Sie die Löschung Ihrer personenbezogenen Daten beantragen möchten, kontaktieren Sie uns unter konrad.hoeffner@uni-leipzig.de.
+
+\emph{Mit dem Ausfüllen der Umfrage bestätigen Sie, dass Sie diese Datenschutzerklärung gelesen und verstanden haben.}
 
 \section{Questions}
+\subsection{Consortium and Role}\label{consortium-and-role}
+
+\question{Which consortium do you report the solutions for?}
+
+Please choose \textbf{all} that apply:
+
+\begin{answers}
+\item BERD
+\item DAPHNE4NFDI
+\item DataPlant
+\item FAIRagro
+\item FAIRmat
+\item GHGA
+\item KonsortSWD
+\item MaRDI
+\item NFDI4Biodiversity
+\item NFDI4BioImage
+\item NFDI4Cat
+\item NFDI4Chem
+\item NFDI4Culture
+\item NFDI4DataScience
+\item NFDI4Earth
+\item NFDI4Energy
+\item NFDI4Health
+\item NFDI4Immuno
+\item NFDI4Ing
+\item NFDI-MatWerk
+\item NFDI4Memory
+\item NFDI4Microbiota
+\item NFDI4Objects
+\item NFDIxCS
+\item PUNCH4NFDI
+\item Text+
+\item Other: \otherbox
+
+\end{answers}
+
+\question{What are your roles in the consortium?}
+Please choose \textbf{all} that apply:
+
+\begin{answers}
+\item Software Developer
+\item Researcher
+\item Data Steward
+\item Administrator or Software/Service Provider
+\item Consortium/Task area/ Task Lead, Project manager, \ldots{}
+\item Unsure/Don\textquotesingle t know
+\item Other: \otherbox
+\end{answers}
+
+\newpage
+\subsection{Main}\label{main}
+
+\question{Which solutions and plans does your consortium have regarding research software marketplaces?}
+
+Comment only when you choose an answer.
+Please choose all that apply and provide a comment:
+
+\begin{answers}
+\item We have or are currently building our own software marketplace
+\item We have or are currently linking our software metadata to an existing software marketplace.
+\item We have some plans to structure our software / metadata but nothing concrete yet.
+\item We do not have any current plans regarding software marketplaces but would like to stay informed.
+\item We do not have any current plans regarding software marketplaces and are not interested in this topic.
+\item Other: \otherbox
+\end{answers}
+
+Feel free to elaborate about your existing solutions in the text fields
+next to the answers.
+
+\question{How do you intend to ensure the sustainability (further development) of the services and software developed or utilized in your consortium?}
+
+Please choose \textbf{all} that apply:
+
+\begin{answers}
+\item None, when the research projects end, the software or service will stop working the next time it breaks.
+\item We stop working on it when the projects end but it's
+  open source.
+We hope the community (e.g. developers on GitHub)
+  contribute fixes and updates and we at least have someone who
+  regularly checks and merges pull requests.
+\item We actually have active communities maintaining and developing the
+  software.
+\item We ourselves keep contributing even after the projects end.
+\item Other: 
+\end{answers}
+
+\question{How do you disseminate your software to get more users?}\label{how-do-you-disseminate-your-software-to-get-more-users}
+Please choose \textbf{all} that apply:
+
+\begin{answers}
+\item Social Media
+\item Institute, university or project web page
+\item Scientific publication
+\item Other: \otherbox
+\end{answers}
+
+\question{Which metadata formats do you describe your research software with (if any)?}\label{which-metadata-formats-do-you-describe-your-research-software-with-if-any}
+Please choose \textbf{all} that apply:
+
+\begin{answers}
+\item CodeMeta, see \url{https://codemeta.github.io/}
+\item Citation File Format (CFF), see \url{https://citation-file-format.github.io/}
+\item Zenodo.json, see \url{https://developers.zenodo.org/}
+\item Other: \otherbox
+\end{answers}
+
+\question{If you use controlled vocabularies, ontologies or knowledge graphs to describe your research software, please list them below (separated via commas, if multiple).}
+Please write your answer here: \otherbox
+
+\question{Where do you publish your software and its source code?}
+Please choose \textbf{all} that apply:
+
+\begin{answers}
+\item We do not create any research software.
+\item We create research software but do not share the source code with others.
+\item Public GitLab repositories.
+\item Public GitHub repositories.
+\item Not sure/don\textquotesingle t know
+\item Other: \otherbox
+\end{answers}
+
+Choose all that apply
+
+\question{Final Questions}\label{final-questions}
+In case you cannot answer some of the questions for your consortium and you know someone who can, please give us their email address below.
+
+\paragraph{}
+Please write your answer here: \otherbox
+
+\paragraph{}
+If you are unable to answer some of the questions for your consortium but know someone who can, you may voluntarily provide their email address below.
+Please ensure that you have their consent before sharing their contact information.
+
+\question{Thank you for filling out the survey, it is really important for us and helps us a lot! Feel free to give us your full name and email in case we have some requests for clarification.}
+Please write your answer here: \otherbox
+
+\paragraph{}
+If you are providing someone else's contact information (e.g., a colleague who can help clarify certain points), please ensure you have their consent before sharing their name and email address with us.
+
+\paragraph{}
+\emph{Submit your survey.}
+
+\paragraph{}
+Thank you for completing this survey.
 
 %************************************************
 \chapter{Results}\label{ch:results}
@@ -195,18 +419,18 @@ To obtain an accurate and current picture of the current state, a survey was con
 \fi
 
 %************************************************
-\chapter{Recommendations}\label{ch:introduction}
+%\chapter{Recommendations}\label{ch:introduction}
 %************************************************
 
 %************************************************
-\chapter{References}\label{ch:introduction}
+%\chapter{References}\label{ch:introduction}
 %************************************************
 
-\bibliographystyle{plainnat}%Options: "plainnat" for English text, "dinat" for German text to conform to DIN 1505 norm.
-\bibliography{beispiel}
+%\bibliographystyle{plainnat}%Options: "plainnat" for English text, "dinat" for German text to conform to DIN 1505 norm.
+%%\bibliography{beispiel}
 
 %************************************************
-\chapter{Appendix}\label{ch:appendix}
+%\chapter{Appendix}\label{ch:appendix}
 %************************************************
 
 \end{document}
