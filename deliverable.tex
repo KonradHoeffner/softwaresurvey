@@ -15,7 +15,7 @@
 \newcommand{\theauthor}{\orcid{Konrad Höffner}{0000-0001-7358-3217}}
 \newcommand{\editor}{\orcid{Matthias Löbe}{0000-0002-2344-0426}}
 \newcommand{\orcid}[2]{\href{https://orcid.org/#2}{#1}}
-\newcommand{\contributor}{\orcid{Lisa Schwier}{0009-0006-0299-4813}, \orcid{Neelam Vishen}{0009-0004-8940-3312}, \orcid{Martin Reinhardt}{0000-0002-1213-5135}, \orcid{Beate Hetenyi}{0009-0006-0497-2327}}
+\newcommand{\contributor}{\orcid{Lisa Schwier}{0009-0006-0299-4813}, \orcid{Neelam Vishen}{0009-0004-8940-3312}, \orcid{Martin Reinhardt}{0000-0002-1213-5135} and \orcid{Beate Hetenyi}{0009-0006-0497-2327}. Structure, GitHub README and phrasing inspired by the \href{https://github.com/gesiscss/Jupyter4NFDI_survey_results}{Jupyter4NFDI User Survey Results} by Julian Kohne.}
 \newcommand{\doi}{10.xxxx/xxxx}
 \newcommand{\version}{1.0}
 \newcommand{\licensename}{CC BY 4.0 (TBD, I would prefer CC 0)}
@@ -44,6 +44,23 @@
 
 This report describes the existing state of software metadata and marketplaces within the NFDI as a prerequisite for the work in the nfdi.software project, which builds upon it.
 To obtain an accurate and current picture of the current state, a survey was conducted withhin the NFDI.
+In total, 140 people started the survey and 51 finished it between 03 March 2025 and the extended end date of 14 April 2025.
+Of the 26 consortia, 23 had at least one representative answer the survey, with no answer from MaRDI, NFDI4Energy and NFDIxCS.
+Within their consortia, participants fulfill various roles, but mostly management, research and software development distantly followed by administator roles and a very low amount of data stewards.
+To get more users, software is disseminated by means of scientific publications closely followed by web pages and with more distance by social media.
+To describe research software \ac{CFF} is a clear favourite but Zenodo.json and CodeMeta are used as well.
+
+Regarding research software market places, answers were nearly tied in a three-way split given in close order:
+The first group has plans to build or use one but nothing concrete yet.
+The second group does not have any current plans regarding software marketplaces but would like to stay informed.
+The third group does not have any current plans regarding software marketplaces and are not interested in this topic.
+A further signifincant portion of the respondends have linked or are currently linking their software metadata to an existing software marketplace.
+A minority does not have any current plans regarding software marketplaces and is not interested in this topic.
+
+To ensure the sustainability of their services and software, consortia rely on active communities, hope the community contributes or keep contributing after the projects end in this order.
+
+All these rankings are based both on individual responses as well as those normalized by consortium with no significant changes in relative preference.
+
 %************************************************
 
 %************************************************
@@ -53,6 +70,16 @@ To obtain an accurate and current picture of the current state, a survey was con
 
 \begin{acronym}
 \acro{NFDI}{Nationale Forschungsdateninfrastruktur}
+%\acro{RSE}{Research Software Engineering}
+\acro{RSE}{Research Software Encyclopedia}
+\acro{BERD}{(Big) Data in Business, Economics, and Related Research}
+\acro{CFF}{Citation File Format}
+\acro{GHGA}{German Human Genome-Phenome Archive}
+\acro{MARDI}[MaRDI]{Mathematical Research Data Initiative}
+\acro{PUNCH}{Particles, Universe, NuClei and Hadrons}
+\acro{FAIR}{Findable, Accessible, Interoperable, Reusable}
+\acro{FAIRmat}[FAIRmat]{FAIR data infrastructure for condensed-matter physics and the chemical physics of solids}
+\acro{FAIRagro}[FAIRagro]{FAIR research data management system for the agrosystems research community}
 \end{acronym}
 \acused{NFDI}
 
@@ -141,22 +168,46 @@ Wenn Sie die Löschung Ihrer personenbezogenen Daten beantragen möchten, kontak
 
 \emph{Mit dem Ausfüllen der Umfrage bestätigen Sie, dass Sie diese Datenschutzerklärung gelesen und verstanden haben.}
 
-\section{Questions}
-\subsection{Consortium and Role}\label{consortium-and-role}
+\chapter{Questions}
+\begin{table}[ht!]
+\begin{tabulary}{\textwidth}{lLL}
+\toprule
+\emph{Code}              &\emph{Question}   &\emph{Type}\\
+\midrule
+consortium        &Which consortium do you report the solutions for?    &Multiple choice\\
+solutions         &Which solutions and plans does your consortium have regarding research software marketplaces?    &Multiple choice\\
+sustain           &How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium?    &Multiple choice with comments\\
+disseminate       &How do you disseminate your software to get more users?    &Multiple Choice\\
+metadata          &Which metadata formats do you describe your research software with (if any)?    &Multiple Choice\\
+ontologies        &If you use controlled vocabularies, ontologies or knowledge graphs to describe your research software, please list them below (separated via commas, if multiple).    &Multiple Choice\\
+sourcecode        &Where do you publish your software and its source code?    &Multiple Choice\\
+forward           &In case you cannot answer some of the questions for your consortium and you know someone who can, please give us their email address below.  &Short free text\\
+contact           &Thank you for filling out the survey, it is really important for us and helps us a lot! Feel free to give us your full name and email in case we have some requests for clarification. &Long free text\\
+\bottomrule
+\end{tabulary}
+\caption{All questions of the questionnaire.}
+\label{tab:questions}
+\end{table}
+
+The questions, including their answer options and answer distribution, are shown below.
+\Cref{tab:questions} provides a list of these questions.
+
+%\subsection{Consortium and Role}\label{consortium-and-role}
+\section{Consortium}
 
 \question{Which consortium do you report the solutions for?}
 
-Please choose \textbf{all} that apply:
+Please choose \emph{all} that apply:
 
 \begin{answers}
 \item BERD
 \item DAPHNE4NFDI
 \item DataPlant
-\item FAIRagro
-\item FAIRmat
-\item GHGA
+\item \ac{FAIRagro}
+\item \ac{FAIRmat}
+\item \ac{GHGA}
 \item KonsortSWD
-\item MaRDI
+\item \ac{MaRDI}
 \item NFDI4Biodiversity
 \item NFDI4BioImage
 \item NFDI4Cat
@@ -173,14 +224,22 @@ Please choose \textbf{all} that apply:
 \item NFDI4Microbiota
 \item NFDI4Objects
 \item NFDIxCS
-\item PUNCH4NFDI
+\item \ac{PUNCH}4NFDI
 \item Text+
 \item Other: \otherbox
-
 \end{answers}
 
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/consortium.pdf}
+\caption{}
+\label{fig:consortium}
+\end{figure}
+
+\newpage
+\section{Role}
+
 \question{What are your roles in the consortium?}
-Please choose \textbf{all} that apply:
+Please choose \emph{all} that apply:
 
 \begin{answers}
 \item Software Developer
@@ -188,17 +247,28 @@ Please choose \textbf{all} that apply:
 \item Data Steward
 \item Administrator or Software/Service Provider
 \item Consortium/Task area/ Task Lead, Project manager, \ldots{}
-\item Unsure/Don\textquotesingle t know
+\item Unsure/Don't know
 \item Other: \otherbox
 \end{answers}
 
-\newpage
-\subsection{Main}\label{main}
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/role.pdf}
+\caption{}
+\label{fig:role}
+\end{figure}
 
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/role_n.pdf}
+\caption{}
+\label{fig:role_n}
+\end{figure}
+
+%\subsection{Main}\label{main}
+\section{Solutions}
 \question{Which solutions and plans does your consortium have regarding research software marketplaces?}
 
 Comment only when you choose an answer.
-Please choose all that apply and provide a comment:
+Please choose \emph{all} that apply and provide a comment:
 
 \begin{answers}
 \item We have or are currently building our own software marketplace
@@ -214,7 +284,7 @@ next to the answers.
 
 \question{How do you intend to ensure the sustainability (further development) of the services and software developed or utilized in your consortium?}
 
-Please choose \textbf{all} that apply:
+Please choose \emph{all} that apply:
 
 \begin{answers}
 \item None, when the research projects end, the software or service will stop working the next time it breaks.
@@ -226,11 +296,11 @@ We hope the community (e.g. developers on GitHub)
 \item We actually have active communities maintaining and developing the
   software.
 \item We ourselves keep contributing even after the projects end.
-\item Other: 
+\item Other: \otherbox
 \end{answers}
 
 \question{How do you disseminate your software to get more users?}\label{how-do-you-disseminate-your-software-to-get-more-users}
-Please choose \textbf{all} that apply:
+Please choose \emph{all} that apply:
 
 \begin{answers}
 \item Social Media
@@ -240,7 +310,7 @@ Please choose \textbf{all} that apply:
 \end{answers}
 
 \question{Which metadata formats do you describe your research software with (if any)?}\label{which-metadata-formats-do-you-describe-your-research-software-with-if-any}
-Please choose \textbf{all} that apply:
+Please choose \emph{all} that apply:
 
 \begin{answers}
 \item CodeMeta, see \url{https://codemeta.github.io/}
@@ -253,23 +323,21 @@ Please choose \textbf{all} that apply:
 Please write your answer here: \otherbox
 
 \question{Where do you publish your software and its source code?}
-Please choose \textbf{all} that apply:
+Please choose \emph{all} that apply:
 
 \begin{answers}
 \item We do not create any research software.
 \item We create research software but do not share the source code with others.
 \item Public GitLab repositories.
 \item Public GitHub repositories.
-\item Not sure/don\textquotesingle t know
+\item Not sure/don't know
 \item Other: \otherbox
 \end{answers}
 
-Choose all that apply
+\subsection{Final Questions}\label{final-questions}
 
-\question{Final Questions}\label{final-questions}
-In case you cannot answer some of the questions for your consortium and you know someone who can, please give us their email address below.
+\question{In case you cannot answer some of the questions for your consortium and you know someone who can, please give us their email address below.}
 
-\paragraph{}
 Please write your answer here: \otherbox
 
 \paragraph{}
@@ -289,7 +357,7 @@ If you are providing someone else's contact information (e.g., a colleague who c
 Thank you for completing this survey.
 
 %************************************************
-\chapter{Results}\label{ch:results}
+%\chapter{Results}\label{ch:results}
 %************************************************
 
 \newgeometry{margin=2cm}
@@ -303,15 +371,23 @@ Thank you for completing this survey.
 \end{sidewaystable}
 \restoregeometry
 
-\section{Consortium}
+%\section{Consortium}
+
+%\section{Role}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/consortium.pdf}
+\includegraphics[width=\textwidth]{plot/role.pdf}
 \caption{}
-\label{fig:consortium}
+\label{fig:role}
 \end{figure}
 
-\section{Dissemination}
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/role_n.pdf}
+\caption{}
+\label{fig:role_n}
+\end{figure}
+
+%\section{Dissemination}
 
 \begin{figure}[h!]
 \includegraphics[width=\textwidth]{plot/disseminate.pdf}
@@ -325,7 +401,7 @@ Thank you for completing this survey.
 \label{fig:disseminate_n}
 \end{figure}
 
-\section{Metadata}
+%\section{Metadata}
 
 \begin{figure}[h!]
 \includegraphics[width=\textwidth]{plot/metadata.pdf}
@@ -339,7 +415,7 @@ Thank you for completing this survey.
 \label{fig:metadata_n}
 \end{figure}
 
-\section{Solutions}
+%\section{Solutions}
 
 \begin{figure}[h!]
 \includegraphics[width=\textwidth]{plot/solutions.pdf}
@@ -353,7 +429,7 @@ Thank you for completing this survey.
 \label{fig:solutions_n}
 \end{figure}
 
-\section{Source Code}
+%\section{Source Code}
 
 \begin{figure}[h!]
 \includegraphics[width=\textwidth]{plot/sourcecode.pdf}
@@ -367,7 +443,7 @@ Thank you for completing this survey.
 \label{fig:sourcecode_n}
 \end{figure}
 
-\section{Sustainability}
+%\section{Sustainability}
 
 \begin{figure}[h!]
 \includegraphics[width=\textwidth]{plot/sustain.pdf}
