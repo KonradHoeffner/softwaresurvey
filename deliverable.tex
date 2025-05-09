@@ -48,7 +48,7 @@ In total, 140 people started the survey and 51 finished it between 03 March 2025
 Of the 26 consortia, 23 had at least one representative answer the survey, with no answer from MaRDI, NFDI4Energy and NFDIxCS.
 Within their consortia, participants fulfill various roles, but mostly management, research and software development distantly followed by administator roles and a very low amount of data stewards.
 To get more users, software is disseminated by means of scientific publications closely followed by web pages and with more distance by social media.
-To describe research software \ac{CFF} is a clear favourite but Zenodo.json and CodeMeta are used as well.
+To describe research software, \ac{CFF} is a clear favourite but Zenodo.json and CodeMeta are used as well.
 
 Regarding research software market places, answers were nearly tied in a three-way split given in close order:
 The first group has plans to build or use one but nothing concrete yet.
@@ -75,7 +75,7 @@ All these rankings are based both on individual responses as well as those norma
 \acro{BERD}{(Big) Data in Business, Economics, and Related Research}
 \acro{CFF}{Citation File Format}
 \acro{GHGA}{German Human Genome-Phenome Archive}
-\acro{MARDI}[MaRDI]{Mathematical Research Data Initiative}
+\acro{MaRDI}{Mathematical Research Data Initiative}
 \acro{PUNCH}{Particles, Universe, NuClei and Hadrons}
 \acro{FAIR}{Findable, Accessible, Interoperable, Reusable}
 \acro{FAIRmat}[FAIRmat]{FAIR data infrastructure for condensed-matter physics and the chemical physics of solids}
@@ -93,9 +93,9 @@ All these rankings are based both on individual responses as well as those norma
 %************************************************
 
 %************************************************
-\chapter{Questionnaire}\label{ch:questionnaire}
+\chapter{Survey Description}\label{ch:questionnaire}
 %************************************************
-
+The original text elements to motivate and introduce the survey are given below.
 %\section{Survey on software marketplace usage}
 
 \section{Description}
@@ -168,7 +168,7 @@ Wenn Sie die Löschung Ihrer personenbezogenen Daten beantragen möchten, kontak
 
 \emph{Mit dem Ausfüllen der Umfrage bestätigen Sie, dass Sie diese Datenschutzerklärung gelesen und verstanden haben.}
 
-\chapter{Questions}
+\chapter{Questions and Answers}
 \begin{table}[ht!]
 \begin{tabulary}{\textwidth}{lLL}
 \toprule
@@ -177,10 +177,10 @@ Wenn Sie die Löschung Ihrer personenbezogenen Daten beantragen möchten, kontak
 consortium        &Which consortium do you report the solutions for?    &Multiple choice\\
 solutions         &Which solutions and plans does your consortium have regarding research software marketplaces?    &Multiple choice\\
 sustain           &How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium?    &Multiple choice with comments\\
-disseminate       &How do you disseminate your software to get more users?    &Multiple Choice\\
-metadata          &Which metadata formats do you describe your research software with (if any)?    &Multiple Choice\\
-ontologies        &If you use controlled vocabularies, ontologies or knowledge graphs to describe your research software, please list them below (separated via commas, if multiple).    &Multiple Choice\\
-sourcecode        &Where do you publish your software and its source code?    &Multiple Choice\\
+disseminate       &How do you disseminate your software to get more users?    &Multiple choice\\
+metadata          &Which metadata formats do you describe your research software with (if any)?    &Multiple choice\\
+ontologies        &If you use controlled vocabularies, ontologies or knowledge graphs to describe your research software, please list them below (separated via commas, if multiple).    &Short free text\\
+sourcecode        &Where do you publish your software and its source code?    &Multiple choice\\
 forward           &In case you cannot answer some of the questions for your consortium and you know someone who can, please give us their email address below.  &Short free text\\
 contact           &Thank you for filling out the survey, it is really important for us and helps us a lot! Feel free to give us your full name and email in case we have some requests for clarification. &Long free text\\
 \bottomrule
@@ -200,14 +200,14 @@ The questions, including their answer options and answer distribution, are shown
 Please choose \emph{all} that apply:
 
 \begin{answers}
-\item BERD
+\item \acs{BERD}
 \item DAPHNE4NFDI
 \item DataPlant
-\item \ac{FAIRagro}
-\item \ac{FAIRmat}
-\item \ac{GHGA}
+\item \acs{FAIRagro}
+\item \acs{FAIRmat}
+\item \acs{GHGA}
 \item KonsortSWD
-\item \ac{MaRDI}
+\item \acs{MaRDI}
 \item NFDI4Biodiversity
 \item NFDI4BioImage
 \item NFDI4Cat
@@ -224,7 +224,7 @@ Please choose \emph{all} that apply:
 \item NFDI4Microbiota
 \item NFDI4Objects
 \item NFDIxCS
-\item \ac{PUNCH}4NFDI
+\item \acs{PUNCH}4NFDI
 \item Text+
 \item Other: \otherbox
 \end{answers}
@@ -234,6 +234,12 @@ Please choose \emph{all} that apply:
 \caption{}
 \label{fig:consortium}
 \end{figure}
+
+Free form \emph{other} answers:
+\begin{itemize}
+\item Research Software Task Force OA7
+\item Storage4PUNCH
+\end{itemize}
 
 \newpage
 \section{Role}
@@ -253,15 +259,34 @@ Please choose \emph{all} that apply:
 
 \begin{figure}[h!]
 \includegraphics[width=\textwidth]{plot/role.pdf}
-\caption{}
+\caption{What are your roles in the consortium?}
 \label{fig:role}
 \end{figure}
 
 \begin{figure}[h!]
 \includegraphics[width=\textwidth]{plot/role_n.pdf}
-\caption{}
+\caption{What are your roles in the consortium? (normalized)}
 \label{fig:role_n}
 \end{figure}
+
+\begin{table}
+\caption{Role pairs.}
+\label{tab:role_pairs}
+\input{table_role_pairs.tex}
+\end{table}
+
+\begin{table}
+\caption{Role combinatinos.}
+\label{tab:role_combinations}
+\input{table_role_combinations.tex}
+\end{table}
+
+Free form \emph{other} answers:
+\begin{itemize}
+\item Service Steward
+\item Technical Advisory Board member
+\item Data Publisher
+\end{itemize}
 
 %\subsection{Main}\label{main}
 \section{Solutions}
@@ -282,6 +307,47 @@ Please choose \emph{all} that apply and provide a comment:
 Feel free to elaborate about your existing solutions in the text fields
 next to the answers.
 
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/solutions.pdf}
+\caption{}
+\label{fig:solutions}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/solutions_n.pdf}
+\caption{}
+\label{fig:solutions_n}
+\end{figure}
+
+Free form comments:
+\begin{itemize}
+\item Is on our forecast but no specific integration plan.
+\item Our software illustrates the design of an API. Maybe it can be used as a template for developers.
+\item open for concrete suggestions
+\item some developments from other NFDI consortia might be interesting for us to bring own tools and software on the other market place
+\item We hope to use nfdi.software as market place for our own code and also to recommend its use as a good practice during tutorials
+\item streamlining with bio.tools and Bioschemas profiles
+\item We have different tools and services we would like to offer to a wider audience. Our involved workflow system Galaxy pretty much already handles the market place stuff.
+\item we are working on a metadata schema
+\item decentral indexing of software based on standardized metadata files
+\item registering our software application 
+\item Currently we have software created and coming from different institutes with their own repositories or marketplaces. We probably won't change dramatically this structure, however for software and metadata created for the consortium specifically we still need to decide how to structure and manage the repositories and marketplace.
+\item We plan to link our software metadata to the nfdi.software RSD and fill the RSD with entries regarding Earth System sciences
+\item You don't say what counts as market place. We use GitHub and GitHub-Zenodo integration.
+\item started linking or updating tool information and including it in this domain, but ran in to problems due to domain editing rights being restricted to 1 user, solution not found: https://bio.tools/t?domain=nfdi4microbiota 
+\item CRAN, PyPi, SSC (Stata Boston Repository), Zenodo
+\item SSH Open Marketplace as registry for curating/disseminating services/tools/training materials: https://marketplace.sshopencloud.eu/
+\item GHGA Software is distributed via Github.com, see https://github.com/ghga-de . It is also linked to the NFDI GitHub repository (https://github.com/nfdi-de).
+\item We mainly use opensource projects that are hosted on e.g. Github
+\item https://helmholtz.software/software/dcache
+\item At the moment, this is just an overview website showcasing all the services relevant for our individual task areas.
+\item we have a gitHub organisation (NFDI4Chem)
+\item I'm not sure what you mean by marketplace (as we don't sell anything), but we have out website/dashboard in which we have our offered services
+\item (but others are more qualified to report on it than I am)
+\item It does not go under 'Marketplace' but its Open Source and we're prepared to collaborate
+\end{itemize}
+
+\section{Sustainability}
 \question{How do you intend to ensure the sustainability (further development) of the services and software developed or utilized in your consortium?}
 
 Please choose \emph{all} that apply:
@@ -299,6 +365,37 @@ We hope the community (e.g. developers on GitHub)
 \item Other: \otherbox
 \end{answers}
 
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/sustain.pdf}
+\caption{}
+\label{fig:sustain}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/sustain.pdf}
+\caption{}
+\label{fig:sustain_n}
+\end{figure}
+
+Free form \emph{other} answers:
+\begin{itemize}
+\item The approaches may differ depending on the specific service
+\item unsure
+\item can't tell
+\item DataPLANT advocates an open contribution and collaboration model. We are enabling the community to work following open source software development principles. We are trying to setup some basic framework to support that.
+\item At least in parts commitment from participating institutions to further develop and maintain services and software beyond the life-time of the consortium. In addition, there's the hope/wish to develop some semblance of community to ensure widespread use and development beyond the consortium.
+\item we attach to existing sustainable projects instead of developing new solutions 
+\item We provide a living document and a demonstrator, which is usable beyond project ending.
+\item Depends on the service/software
+\item We do not build software, we curate metadata (swMATH)
+\item I don't know.
+\item Don't know
+\item There is work being done to ensure sustainability, but I'm personally not aware of any concrete details. 
+\item But that's of course not true for all software; but software that already existed before punch4nfdi started is likely to be continued
+\end{itemize}
+
+
+\section{Dissemination}
 \question{How do you disseminate your software to get more users?}\label{how-do-you-disseminate-your-software-to-get-more-users}
 Please choose \emph{all} that apply:
 
@@ -309,19 +406,95 @@ Please choose \emph{all} that apply:
 \item Other: \otherbox
 \end{answers}
 
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/disseminate.pdf}
+\caption{}
+\label{fig:disseminate}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/disseminate_n.pdf}
+\caption{}
+\label{fig:disseminate_n}
+\end{figure}
+
+Free form \emph{other} answers:
+\begin{itemize}
+\item Conferences, Talks
+\item Public services like GitHUB
+\item Conferences, workshops, summer/winter schools,...
+\item conference presentations and expert discussions
+\item Events, conferences, summer schools...
+\item trainings
+\item Conferences
+\item project website, marketplace
+\item zbmath.org
+\item Tutorials, conferences
+\item Scientific community communication
+\item personal contacts, active acquisition
+\item Annual User Workshops
+\end{itemize}
+
+\section{Metadata}
 \question{Which metadata formats do you describe your research software with (if any)?}\label{which-metadata-formats-do-you-describe-your-research-software-with-if-any}
 Please choose \emph{all} that apply:
 
 \begin{answers}
 \item CodeMeta, see \url{https://codemeta.github.io/}
-\item Citation File Format (CFF), see \url{https://citation-file-format.github.io/}
+\item \acf{CFF},\\see \url{https://citation-file-format.github.io/}
 \item Zenodo.json, see \url{https://developers.zenodo.org/}
 \item Other: \otherbox
 \end{answers}
 
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/metadata.pdf}
+\caption{}
+\label{fig:metadata}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/metadata_n.pdf}
+\caption{}
+\label{fig:metadata_n}
+\end{figure}
+
+Free form \emph{other} answers:
+\begin{itemize}
+\item looking at \url{https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE}
+\item unsure, as I am not involved in the actual development
+\item other discipline specific sidecar files, dep5, oer metadata
+\item Software-specific documetnation (e.g. R Package documentation using roxygen)
+\item All kind, you can provide a configuration, and you use our design for data exchange and describing your data.
+\item We don't set a policy yet, although software development guidelines are in the workplan.
+\item We do not have that across all software we have, however this might be useful to add on our repository.
+\item We are using a metadata schema based on international standards for genomic data sharing. The schema is modelled using LinkML and exists as a YAML. See https://github.com/ghga-de/ghga-metadata-schema
+\item Don't know
+\item NEXUS
+\item none
+\item GitHub
+\end{itemize}
+
+
+\section{Ontologies}
 \question{If you use controlled vocabularies, ontologies or knowledge graphs to describe your research software, please list them below (separated via commas, if multiple).}
 Please write your answer here: \otherbox
 
+Free form \emph{other} answers:
+\begin{itemize}
+\item Whatever is used by established formats (ORCID, ROR, DCT).
+\item EDAM,bioschemas,RO-Crate
+\item EDAM, others may apply
+\item unsure as I am not involved in the actual development
+\item we have a long list of ontologies on our Ontology Worldmap (\url{https://github.com/nfdi4cat/Ontology-Overview-of-NFDI4Cat}) with more than 40 core ontologies
+\item DataCite, Openaire, CodeMeta
+\item TaDiRAH
+\item Schema.org, maSMP vocabulary
+\item Ontologies used are listed here: \url{https://docs.ghga.de/metadata/standards/#ontologies}. They include BRENDA Tissue Ontology, Data Use Ontology, Human Ancestry Ontology, Human Phenotype Ontology, International Classification of Diseases, Mondo Disease Ontology, National Cancer Institute Thesaurus.
+\item We use our own ontology (\url{https://nfdi4earth.de/ontology/})
+\item data management, FAIR, storage, data access, long-term archival, open-data
+\end{itemize}
+
+\section{Source Code}
 \question{Where do you publish your software and its source code?}
 Please choose \emph{all} that apply:
 
@@ -333,6 +506,28 @@ Please choose \emph{all} that apply:
 \item Not sure/don't know
 \item Other: \otherbox
 \end{answers}
+
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/sourcecode.pdf}
+\caption{}
+\label{fig:sourcecode}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[width=\textwidth]{plot/sourcecode_n.pdf}
+\caption{}
+\label{fig:sourcecode_n}
+\end{figure}
+
+Free form \emph{other} answers:
+\begin{itemize}
+\item Approaches may differ depending on service
+\item Zenodo (given 4 times)
+\item Under the nf-core project
+\item GitLab; not sure how public/not public
+\item Onw [sic] public gerrit-Server (git-based)
+\item GH-Repo linked with Zenodo
+\end{itemize}
 
 \subsection{Final Questions}\label{final-questions}
 
@@ -372,127 +567,11 @@ Thank you for completing this survey.
 \restoregeometry
 
 %\section{Consortium}
-
 %\section{Role}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/role.pdf}
-\caption{}
-\label{fig:role}
-\end{figure}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/role_n.pdf}
-\caption{}
-\label{fig:role_n}
-\end{figure}
-
 %\section{Dissemination}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/disseminate.pdf}
-\caption{}
-\label{fig:disseminate}
-\end{figure}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/disseminate_n.pdf}
-\caption{}
-\label{fig:disseminate_n}
-\end{figure}
-
 %\section{Metadata}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/metadata.pdf}
-\caption{}
-\label{fig:metadata}
-\end{figure}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/metadata_n.pdf}
-\caption{}
-\label{fig:metadata_n}
-\end{figure}
-
 %\section{Solutions}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/solutions.pdf}
-\caption{}
-\label{fig:solutions}
-\end{figure}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/solutions_n.pdf}
-\caption{}
-\label{fig:solutions_n}
-\end{figure}
-
 %\section{Source Code}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/sourcecode.pdf}
-\caption{}
-\label{fig:sourcecode}
-\end{figure}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/sourcecode_n.pdf}
-\caption{}
-\label{fig:sourcecode_n}
-\end{figure}
-
-%\section{Sustainability}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/sustain.pdf}
-\caption{}
-\label{fig:sustain}
-\end{figure}
-
-\begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/sustain.pdf}
-\caption{}
-\label{fig:sustain_n}
-\end{figure}
-
-\begin{table}
-\caption{Role pairs.}
-\label{tab:role_pairs}
-\input{table_role_pairs.tex}
-\end{table}
-
-%\begin{table}
-%\caption{All.}
-%\label{tab:all}
-%\input{table_all.tex}
-%\end{table}
-
-\begin{table}
-\caption{Role combinatinos.}
-\label{tab:role_combinations}
-\input{table_role_combinations.tex}
-\end{table}
-
-\iffalse
-\begin{table}
-%\input{table_.tex}
-\end{table}
-\begin{table}
-%\input{table_.tex}
-\end{table}
-\begin{table}
-%\input{table_.tex}
-\end{table}
-\begin{table}
-%\input{table_.tex}
-\end{table}
-\begin{table}
-%\input{table_.tex}
-\end{table}
-\begin{table}
-\fi
 
 %************************************************
 %\chapter{Recommendations}\label{ch:introduction}
