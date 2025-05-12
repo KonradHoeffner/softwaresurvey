@@ -85,6 +85,8 @@ All these rankings are based both on individual responses as well as those norma
 
 \setcounter{tocdepth}{1}% no subsection in TOC
 \tableofcontents
+\listoffigures
+\listoftables
 \addcontentsline{toc}{chapter}{\contentsname}
 %\pdfbookmark[1]{\contentsname}{tableofcontents}
 
@@ -170,6 +172,8 @@ Wenn Sie die Löschung Ihrer personenbezogenen Daten beantragen möchten, kontak
 
 \chapter{Questions and Answers}
 \begin{table}[ht!]
+\caption{All questions of the questionnaire.}
+\label{tab:questions}
 \begin{tabulary}{\textwidth}{lLL}
 \toprule
 \emph{Code}              &\emph{Question}   &\emph{Type}\\
@@ -185,8 +189,6 @@ forward           &In case you cannot answer some of the questions for your cons
 contact           &Thank you for filling out the survey, it is really important for us and helps us a lot! Feel free to give us your full name and email in case we have some requests for clarification. &Long free text\\
 \bottomrule
 \end{tabulary}
-\caption{All questions of the questionnaire.}
-\label{tab:questions}
 \end{table}
 
 The questions, including their answer options and answer distribution, are shown below.
@@ -230,9 +232,9 @@ Please choose \emph{all} that apply:
 \end{answers}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/consortium.pdf}
-\caption{}
+\caption{Which consortium do you report the solutions for?}
 \label{fig:consortium}
+\includegraphics[width=\textwidth]{plot/consortium.pdf}
 \end{figure}
 
 Free form \emph{other} answers:
@@ -258,15 +260,15 @@ Please choose \emph{all} that apply:
 \end{answers}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/role.pdf}
 \caption{What are your roles in the consortium?}
 \label{fig:role}
+\includegraphics[width=\textwidth]{plot/role.pdf}
 \end{figure}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/role_n.pdf}
 \caption{What are your roles in the consortium? (normalized)}
 \label{fig:role_n}
+\includegraphics[width=\textwidth]{plot/role_n.pdf}
 \end{figure}
 
 \begin{table}
@@ -276,7 +278,7 @@ Please choose \emph{all} that apply:
 \end{table}
 
 \begin{table}
-\caption{Role combinatinos.}
+\caption{Role combinations.}
 \label{tab:role_combinations}
 \input{table_role_combinations.tex}
 \end{table}
@@ -308,15 +310,15 @@ Feel free to elaborate about your existing solutions in the text fields
 next to the answers.
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/solutions.pdf}
-\caption{}
+\caption{Which solutions and plans does your consortium have regarding research software marketplaces?}
 \label{fig:solutions}
+\includegraphics[width=\textwidth]{plot/solutions.pdf}
 \end{figure}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/solutions_n.pdf}
-\caption{}
+\caption{Which solutions and plans does your consortium have regarding research software marketplaces? (normalized)}
 \label{fig:solutions_n}
+\includegraphics[width=\textwidth]{plot/solutions_n.pdf}
 \end{figure}
 
 Free form comments:
@@ -366,15 +368,15 @@ We hope the community (e.g. developers on GitHub)
 \end{answers}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/sustain.pdf}
-\caption{}
+\caption{How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium?}
 \label{fig:sustain}
+\includegraphics[width=\textwidth]{plot/sustain.pdf}
 \end{figure}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/sustain.pdf}
-\caption{}
+\caption{How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium? (normalized)}
 \label{fig:sustain_n}
+\includegraphics[width=\textwidth]{plot/sustain.pdf}
 \end{figure}
 
 Free form \emph{other} answers:
@@ -407,15 +409,15 @@ Please choose \emph{all} that apply:
 \end{answers}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/disseminate.pdf}
-\caption{}
+\caption{How do you disseminate your software to get more users?}
 \label{fig:disseminate}
+\includegraphics[width=\textwidth]{plot/disseminate.pdf}
 \end{figure}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/disseminate_n.pdf}
-\caption{}
+\caption{How do you disseminate your software to get more users? (normalized)}
 \label{fig:disseminate_n}
+\includegraphics[width=\textwidth]{plot/disseminate_n.pdf}
 \end{figure}
 
 Free form \emph{other} answers:
@@ -447,15 +449,15 @@ Please choose \emph{all} that apply:
 \end{answers}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/metadata.pdf}
-\caption{}
+\caption{Which metadata formats do you describe your research software with (if any)?}
 \label{fig:metadata}
+\includegraphics[width=\textwidth]{plot/metadata.pdf}
 \end{figure}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/metadata_n.pdf}
-\caption{}
+\caption{Which metadata formats do you describe your research software with (if any)? (normalized)}
 \label{fig:metadata_n}
+\includegraphics[width=\textwidth]{plot/metadata_n.pdf}
 \end{figure}
 
 Free form \emph{other} answers:
@@ -508,15 +510,15 @@ Please choose \emph{all} that apply:
 \end{answers}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/sourcecode.pdf}
-\caption{}
+\caption{Where do you publish your software and its source code?}
 \label{fig:sourcecode}
+\includegraphics[width=\textwidth]{plot/sourcecode.pdf}
 \end{figure}
 
 \begin{figure}[h!]
-\includegraphics[width=\textwidth]{plot/sourcecode_n.pdf}
-\caption{}
+\caption{Where do you publish your software and its source code? (normalized)}
 \label{fig:sourcecode_n}
+\includegraphics[width=\textwidth]{plot/sourcecode_n.pdf}
 \end{figure}
 
 Free form \emph{other} answers:
