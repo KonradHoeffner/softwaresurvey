@@ -12,7 +12,7 @@ UNDER CONSTRUCTION, WILL BE MOVED
 
 ## Licensing
 
-TBD
+We waive all copyright under the CC0 1.0 license but if you reuse or refer to our results it would still be nice if you [cite](CITATION.cff) the deliverable.
 
 ## Contact
 

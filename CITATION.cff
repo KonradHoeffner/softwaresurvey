@@ -8,7 +8,7 @@ version: 0.1.0
 date-released: "TBD"
 url: "https://github.com/KonradHoeffner/softwaresurvey"
 repository-code: "https://github.com/KonradHoeffner/softwaresurvey"
-license: "To be determined"
+license: CC0-1.0
 keywords:
   - NFDI
   - nfdi.software
