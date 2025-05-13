@@ -8,6 +8,7 @@
 \usepackage{cleveref}%\cref command for floats like tables
 \usepackage{rotating}
 \usepackage{pifont} \newcommand{\cmark}{\ding{51}}
+\usepackage{listings}
 
 % Replace values ***
 \newcommand{\thetitle}{Descriptive review of already existing solutions, plans and policies regarding software marketplaces in NFDI consortias}
@@ -27,6 +28,10 @@
 \newlist{answers}{itemize}{2}
 \setlist[answers]{label=$\square$}
 \newcommand{\otherbox}{\fbox{\phantom{This is how big an answer would be.}}}
+% *****************
+% hide table row
+\usepackage{array}
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
 % *****************
 \author{\theauthor}
 \date{\thedate}
@@ -56,7 +61,7 @@ Regarding research software market places, answers were nearly tied in a three-w
 The first group has plans to build or use one but nothing concrete yet.
 The second group does not have any current plans regarding software marketplaces but would like to stay informed.
 The third group does not have any current plans regarding software marketplaces and are not interested in this topic.
-A further signifincant portion of the respondends have linked or are currently linking their software metadata to an existing software marketplace.
+A further signifincant portion of the respondents have linked or are currently linking their software metadata to an existing software marketplace.
 A minority does not have any current plans regarding software marketplaces and is not interested in this topic.
 
 To ensure the sustainability of their services and software, consortia rely on active communities, hope the community contributes or keep contributing after the projects end in this order.
@@ -177,32 +182,104 @@ Wenn Sie die Löschung Ihrer personenbezogenen Daten beantragen möchten, kontak
 \chapter{Results}
 \section{Questions}
 \begin{table}[ht!]
-\caption{All questions of the questionnaire.}
+\caption{All questions. Multiple choice questions are numbered.}
 \label{tab:questions}
-\begin{tabulary}{\textwidth}{lLL}
+\begin{tabulary}{\textwidth}{HlLL}
 \toprule
-\emph{Code}              &\emph{Question}   &\emph{Type}\\
+\emph{Nr}              \emph{Code}              &\emph{Question}   &\emph{Type}\\
 \midrule
-consortium        &Which consortium do you report the solutions for?    &Multiple choice\\
-solutions         &Which solutions and plans does your consortium have regarding research software marketplaces?    &Multiple choice\\
-sustain           &How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium?    &Multiple choice with comments\\
-disseminate       &How do you disseminate your software to get more users?    &Multiple choice\\
-metadata          &Which metadata formats do you describe your research software with (if any)?    &Multiple choice\\
-ontologies        &If you use controlled vocabularies, ontologies or knowledge graphs to describe your research software, please list them below (separated via commas, if multiple).    &Short free text\\
-sourcecode        &Where do you publish your software and its source code?    &Multiple choice\\
-forward           &In case you cannot answer some of the questions for your consortium and you know someone who can, please give us their email address below.  &Short free text\\
-contact           &Thank you for filling out the survey, it is really important for us and helps us a lot! Feel free to give us your full name and email in case we have some requests for clarification. &Long free text\\
+1	&consortium        &Which consortium do you report the solutions for?    &Multiple choice\\
+2	&solutions         &Which solutions and plans does your consortium have regarding research software marketplaces?    &Multiple choice\\
+3	&sustain           &How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium?    &Multiple choice with comments\\
+4	&disseminate       &How do you disseminate your software to get more users?    &Multiple choice\\
+5	&metadata          &Which metadata formats do you describe your research software with (if any)?    &Multiple choice\\
+---	&ontologies    &If you use controlled vocabularies, ontologies or knowledge graphs to describe your research software, please list them below (separated via commas, if multiple).    &Short free text\\
+6	&sourcecode        &Where do you publish your software and its source code?    &Multiple choice\\
+---	&forward           &In case you cannot answer some of the questions for your consortium and you know someone who can, please give us their email address below.  &Short free text\\
+---	&contact           &Thank you for filling out the survey, it is really important for us and helps us a lot! Feel free to give us your full name and email in case we have some requests for clarification. &Long free text\\
 \bottomrule
 \end{tabulary}
 \end{table}
 
-\Cref{tab:questions} provides a list of all posed questions.
-
+%\Cref{tab:questions} provides a list of all posed questions.
+\newpage
 \section{Normalization}
+Individual response counts are biased by different participation from the consortia.
+% ranging from 0 to 11 answers per consortium.
+Thus we also look into response counts normalized by consortium.
+Ideally, there should be identical answers within each consortium but this isn't always the case.
+%, so we also look at the differences.
+However the non-normalized values also shouldn't be discounted because if we assume participation is correlated with consortium size (or expressed in another way the probability of answering is not correlated by the consortium), then we can just treat the non-normalized values as samples from the whole of NFDI and the answers as based on the individual practises.
+For example, if persons $A$ and $B$ both belong to consortium $C$, and $A$ answers \emph{GitHub} and $B$ answers \emph{GitLab} to the source code question, then this doesn't need to mean that one got the answer wrong, just that there is no single answer that is valid for all people in that consortium.
+Ultimately, the final rankings between base and normalized answers vary very little, so in the rest of this report they are both shown without further comments on or differentiation by normalization.
+See the JuypterLab notebook \texttt{results.ipynb} for complete normalization, plotting and table generation code and the following snippet for the normalization core code:
+%\Cref{tab:questions} provides a list of all posed questions.
+\lstset{
+language=Python,
+commentstyle=\color{nfdiblue},
+basicstyle=\ttfamily\footnotesize,
+breaklines=true,
+postbreak=\mbox{\textcolor{nfdiblue}{$\hookrightarrow$}\space}
+}
+\begin{lstlisting}
+# if someone belongs to n consortia, count those
+# only as 1/n for correct normalization of the other columns
+# requires col_count("consortium","...") to be run first
+def cons_count_normalize():
+  counts = defaultdict(int)
+  for consortia in df["consortium"]:
+    for consortium in consortia:
+      counts[consortium] += len(consortia)
+  return counts
+
+def col_count_normalize(prefix,title=None):
+  counts = {}
+  # aggregated consortium values
+  # created by calling col_count("consortium",...) first
+  cons = df["consortium"]
+  title = codes[prefix]
+  
+  normalized_counts = defaultdict(int)
+  aggregated = df[prefix]
+  for index, values in aggregated.items():
+    # using the aggregated column where the values are a set
+    # alternatively we could also use the non-aggregated columns
+    for value in values:
+      consortia = cons.at[index]
+      # ignore answers which did not specify a consortium
+      # alternatively one could also assign a constant value
+      if len(consortia)>0:
+        weights = list(map(lambda c: 1/max(1,cons_count_normalized[c]),consortia))
+        # results get a bit unintuitive if people are part of multiple consortia
+        weight = sum(weights)
+        normalized_counts[value] += weight
+  [...]
+\end{lstlisting}
+
+\iffalse
+Each given question $q$ out of the set of multiple choice questions $Q$ is assigned a set of possible answers $A_q$.
+Each individual respondent $r$ of the 51 respondents $R$ now selects a subset $A_{q_r} \subseteq A_q$ of the answers for that question.
+Base answer counts $c_a$ for each answer $a \in A_q$ are intuitively determined as:
+
+\[ c_a = |\{r \in R: a \in A_{q_r} \}| \].
+
+%For example, 26 of the 51 respondents chose \emph{Manager} as one of their roles (\cref{fig:role}).
+For example, 2 of the 51 respondents chose \emph{Data Steward} as one of their roles, see  \cref{fig:role} and \cref{tab:results}.
+However 
+see \cref{fig:role_n}
+
+Normalized counts are determined as:
+
+\[ c{_a}' = \sum_{r \in R: a \in A_{q_r}}{\frac{1}{\mathrm{g}(r)}} \]
+
+where $\mathrm{g}(r)$ is the number of consortia that r belongs to.
+
+%\[ c_n = \sum_{r \in R}^{} \]
+\fi
+
 
 \section{Answers}
 Answer options and answer distributions are shown below.
-
 
 %\subsection{Consortium and Role}\label{consortium-and-role}
 \section{Consortium}
