@@ -1,21 +1,37 @@
 cff-version: 1.2.0
+title: nfdi.software Software Marketplace Survey Results
+message: If you use this dataset, please cite it using the metadata from this file.
+type: dataset
 authors:
   - family-names: Höffner
     given-names: Konrad
-    orcid: https://orcid.org/0000-0001-7358-3217
-title: "nfdi.software Software Marketplace Survey Results"
-version: 0.1.0
-date-released: "TBD"
-url: "https://github.com/KonradHoeffner/softwaresurvey"
-repository-code: "https://github.com/KonradHoeffner/softwaresurvey"
-license: CC0-1.0
+    orcid: 'https://orcid.org/0000-0001-7358-3217'
+    affiliation: Leipzig University, Institute for Medical Informatics, Statistics and Epidemiology (IMISE)
+  - given-names: Matthias
+    family-names: Löbe
+    orcid: 'https://orcid.org/0000-0002-2344-0426'
+    affiliation: Leipzig University, Institute for Medical Informatics, Statistics and Epidemiology (IMISE)
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.15394434
+    description: Zenodo archive
+repository-code: 'https://github.com/KonradHoeffner/softwaresurvey'
+url: 'https://github.com/KonradHoeffner/softwaresurvey'
+abstract: >-
+  The nfdi.software project surveyed the NFDI landscape (51 respondents from 23 out of 26 consortia)
+  between March and April 2025 to understand the current state of software metadata and marketplaces.
+  Management, research, and software development roles were most represented.
+  Software dissemination primarily occurs through scientific publications and web pages.
+  The Citation File Format (CFF) is the preferred standard for describing research software metadata.
+  Regarding marketplaces, responses were split between having plans, wanting to stay informed without current plans, and having no interest.
+  A significant portion already links metadata to existing marketplaces.
+  Consortia prioritize active community involvement for sustainability.
 keywords:
   - NFDI
+  - National Research Data Infrastructure
+  - software metadata
+  - base4nfdi
   - nfdi.software
-  - Survey
-  - Descriptive Statistics
+  - survey
   - software marketplace
-  - Jupyter
-identifiers:
-  - type: "doi"
-    value: "TBD"
+license: CC0-1.0
