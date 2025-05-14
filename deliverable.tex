@@ -13,7 +13,7 @@
 \usepackage{listings}
 
 % Replace values ***
-\newcommand{\thetitle}{Descriptive review of already existing solutions, plans and policies regarding software marketplaces in NFDI consortias}
+\newcommand{\thetitle}{Descriptive review of already existing solutions, plans and policies regarding software marketplaces in NFDI consortia}
 \newcommand{\thedate}{\today}
 \newcommand{\theauthor}{\orcid{Konrad Höffner}{0000-0001-7358-3217} and \orcid{Matthias Löbe}{0000-0002-2344-0426}}
 %\newcommand{\editor}{\orcid{Matthias Löbe}{0000-0002-2344-0426}}% moved ML to authors as CITATION.cff does offer an editor field for the whole work
@@ -55,18 +55,18 @@
 %\addcontentsline{toc}{chapter}{Abstract}
 
 This report describes the existing state of software metadata and marketplaces within the NFDI as a prerequisite for the work in the nfdi.software project, which builds upon it.
-To obtain an accurate and current picture of the current state, a survey was conducted withhin the NFDI.
+To obtain an accurate and current picture of the current state, a survey was conducted within the NFDI.
 In total, 140 people started the survey and 51 finished it between 03 March 2025 and the extended end date of 14 April 2025.
 Of the 26 consortia, 23 had at least one representative answer the survey, with no answer from MaRDI, NFDI4Energy and NFDIxCS.
-Within their consortia, participants fulfill various roles, but mostly management, research and software development distantly followed by administator roles and a very low amount of data stewards.
+Within their consortia, participants fulfill various roles, but mostly management, research and software development distantly followed by administrator roles and a very low amount of data stewards.
 To get more users, software is disseminated by means of scientific publications closely followed by web pages and with more distance by social media.
-To describe research software, the \acf{CFF} is a clear favourite but Zenodo.json and CodeMeta are used as well.
+To describe research software, the \acf{CFF} is a clear favorite but Zenodo.json and CodeMeta are used as well.
 
 Regarding research software market places, answers were nearly tied in a three-way split given in close order:
 The first group has plans to build or use one but nothing concrete yet.
 The second group does not have any current plans regarding software marketplaces but would like to stay informed.
 The third group does not have any current plans regarding software marketplaces and are not interested in this topic.
-A further signifincant portion of the respondents have linked or are currently linking their software metadata to an existing software marketplace.
+A further significant portion of the respondents have linked or are currently linking their software metadata to an existing software marketplace.
 A minority does not have any current plans regarding software marketplaces and is not interested in this topic.
 
 To ensure the sustainability of their services and software, consortia rely on active communities, hope the community contributes or keep contributing after the projects end in this order.
@@ -101,7 +101,11 @@ All these rankings are based both on individual responses as well as those norma
 \addcontentsline{toc}{chapter}{\contentsname}
 \listoffigures
 \addcontentsline{toc}{chapter}{List of Figures}
+% same page
+\begingroup
+\let\clearpage\relax
 \listoftables
+\endgroup
 \addcontentsline{toc}{chapter}{List of Tables}
 %\pdfbookmark[1]{\contentsname}{tableofcontents}
 
@@ -130,7 +134,7 @@ nfdi.software is a Base4NFDI funded project that plans to design, implement and 
 The aim is to improve the accessibility of NFDI research data and its access with specific software packages and enable more complex (re)use of metadata and software.
 The need for a central access portal for research software of the NFDI consortia arises from the growing need of the scientific disciplines of the cultural sciences, humanities and social sciences, engineering and the natural and life sciences to ensure the sustainable use and further development of research software.
 nfdi.software is intended to link and coordinate independent individual developments from these areas in a federated data infrastructure.
-The networking and contextualisation of research software opens up the potential to use research data sustainably and to expand the spectrum of analysis and processing of research data.
+The networking and contextualization of research software opens up the potential to use research data sustainably and to expand the spectrum of analysis and processing of research data.
 
 We are currently in the initialization phase, so now is your chance to tell us about your existing research software, metadata, your specific needs and potentially existing marketplaces and registries!
 Your responses are critical to design our infrastructure and prevent duplicate work, and we will share the evaluated responses with you, so please fill out the short survey (5-10 minutes)!
@@ -188,7 +192,8 @@ Wenn Sie die Löschung Ihrer personenbezogenen Daten beantragen möchten, kontak
 \chapter{Results}
 \section{Questions}
 \begin{table}[ht!]
-\caption{All questions. Multiple choice questions are numbered.}
+\caption{All questions}
+%\caption[All questions]{All questions. Multiple choice questions are numbered.}
 \label{tab:questions}
 \begin{tabulary}{\textwidth}{HlLL}
 \toprule
@@ -215,7 +220,7 @@ Individual response counts are biased by different participation from the consor
 Thus we also look into response counts normalized by consortium.
 Ideally, there should be identical answers within each consortium but this isn't always the case.
 %, so we also look at the differences.
-However the non-normalized values also shouldn't be discounted because if we assume participation is correlated with consortium size (or expressed in another way the probability of answering is not correlated by the consortium), then we can just treat the non-normalized values as samples from the whole of NFDI and the answers as based on the individual practises.
+However the non-normalized values also shouldn't be discounted because if we assume participation is correlated with consortium size (or expressed in another way the probability of answering is not correlated by the consortium), then we can just treat the non-normalized values as samples from the whole of NFDI and the answers as based on the individual practices.
 For example, if persons $A$ and $B$ both belong to consortium $C$, and $A$ answers \emph{GitHub} and $B$ answers \emph{GitLab} to the source code question, then this doesn't need to mean that one got the answer wrong, just that there is no single answer that is valid for all people in that consortium.
 Ultimately, the final rankings between base and normalized answers vary very little, so in the rest of this report they are both shown without further comments on or differentiation by normalization.
 See the JuypterLab notebook \href{https://github.com/KonradHoeffner/softwaresurvey/blob/master/results.ipynb}{results.ipynb} for complete normalization, plotting and table generation code and the following snippet for the normalization core code:
@@ -380,7 +385,7 @@ Free form \emph{other} answers:
 \end{table}
 
 \begin{table}[h!]
-\caption{Role combinations.}
+\caption[Role combinations]{Role combinations. One respondent didn't select any role.}
 \label{tab:role_combinations}
 \input{table_role_combinations.tex}
 \end{table}
@@ -437,14 +442,14 @@ Free form \emph{comments}:
 
 \vspace{-1em}
 \begin{figure}[h!]
-\caption{Which solutions and plans does your consortium have regarding research software marketplaces?}
+\caption[Solutions and plans for software marketplaces]{Which solutions and plans does your consortium have regarding research software marketplaces?}
 \label{fig:solutions}
 \includegraphics[width=0.55\textwidth]{plot/solutions.pdf}
 \end{figure}
 
 \vspace{-2em}
 \begin{figure}[h!]
-\caption{Which solutions and plans does your consortium have regarding research software marketplaces? (normalized)}
+\caption[Solutions and plans for software marketplaces (normalized)]{Which solutions and plans does your consortium have regarding research software marketplaces? (normalized)}
 \label{fig:solutions_n}
 \includegraphics[width=0.55\textwidth]{plot/solutions_n.pdf}
 \end{figure}
@@ -469,13 +474,13 @@ We hope the community (e.g. developers on GitHub)
 \end{answers}
 
 \begin{figure}[h!]
-\caption{How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium?}
+\caption[Ensuring sustainability of services and software]{How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium?}
 \label{fig:sustain}
 \includegraphics[width=\textwidth]{plot/sustain.pdf}
 \end{figure}
 
 \begin{figure}[h!]
-\caption{How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium? (normalized)}
+\caption[Ensuring sustainability of services and software (normalized)]{How do you intend to ensure the sustainability (maintaining usability and further development) of the services and software developed or utilized in your consortium? (normalized)}
 \label{fig:sustain_n}
 \includegraphics[width=\textwidth]{plot/sustain.pdf}
 \end{figure}
@@ -527,13 +532,13 @@ Free form \emph{other} answers:
 \end{itemize}
 
 \begin{figure}[h!]
-\caption{How do you disseminate your software to get more users?}
+\caption[Software dissemination]{How do you disseminate your software to get more users?}
 \label{fig:disseminate}
 \includegraphics[width=0.8\textwidth]{plot/disseminate.pdf}
 \end{figure}
 
 \begin{figure}[h!]
-\caption{How do you disseminate your software to get more users? (normalized)}
+\caption[Software dissemination (normalized)]{How do you disseminate your software to get more users? (normalized)}
 \label{fig:disseminate_n}
 \includegraphics[width=0.8\textwidth]{plot/disseminate_n.pdf}
 \end{figure}
@@ -569,13 +574,13 @@ Free form \emph{other} answers:
 \end{itemize}
 
 \begin{figure}[h!]
-\caption{Which metadata formats do you describe your research software with (if any)?}
+\caption[Metadata formats]{Which metadata formats do you describe your research software with (if any)?}
 \label{fig:metadata}
 \includegraphics[width=0.65\textwidth]{plot/metadata.pdf}
 \end{figure}
 
 \begin{figure}[h!]
-\caption{Which metadata formats do you describe your research software with (if any)? (normalized)}
+\caption[Metadata formats (normalized)]{Which metadata formats do you describe your research software with (if any)? (normalized)}
 \label{fig:metadata_n}
 \includegraphics[width=0.65\textwidth]{plot/metadata_n.pdf}
 \end{figure}
@@ -627,19 +632,20 @@ Free form \emph{other} answers:
 
 \clearpage
 \begin{figure}[h!]
-\caption{Where do you publish your software and its source code?}
+\caption[Software and source code publishing]{Where do you publish your software and its source code?}
 \label{fig:sourcecode}
 \includegraphics[width=0.7\textwidth]{plot/sourcecode.pdf}
 \end{figure}
 
 \begin{figure}[h!]
-\caption{Where do you publish your software and its source code?\\(normalized)}
+\caption[Software and source code publishing (normalized)]{Where do you publish your software and its source code?\\(normalized)}
 \label{fig:sourcecode_n}
 \includegraphics[width=0.7\textwidth]{plot/sourcecode_n.pdf}
 \end{figure}
 
 \clearpage
-\section{Final Questions}\label{final-questions}
+\section{Contact Information}\label{final-questions}
+The final questions concern contact information and are provided for completeness but their answers are omitted for data protection.
 
 \question{In case you cannot answer some of the questions for your consortium and you know someone who can, please give us their email address below.}
 
