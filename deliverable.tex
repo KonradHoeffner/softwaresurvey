@@ -1,4 +1,6 @@
 \documentclass[headsepline,titlepage,twoside,12pt,toc=flat,headings=normal]{scrreprt}
+%\usepackage{hyperref}
+%\PassOptionsToPackage{noforwardlinks}{acronym}% acronym list looks strange if only very few entries are blue and the rest looks normal%tectonic has outdated acronym package without this option
 \usepackage{nfdisoftware}
 \usepackage{booktabs}% nice tables with \toprule, \midrule and \bottomrule
 \usepackage{csquotes}% \enquote command
@@ -17,7 +19,7 @@
 %\newcommand{\editor}{\orcid{Matthias Löbe}{0000-0002-2344-0426}}% moved ML to authors as CITATION.cff does offer an editor field for the whole work
 \newcommand{\orcid}[2]{\href{https://orcid.org/#2}{#1}}
 \newcommand{\contributor}{\orcid{Lisa Schwier}{0009-0006-0299-4813}, \orcid{Neelam Vishen}{0009-0004-8940-3312}, \orcid{Martin Reinhardt}{0000-0002-1213-5135} and \orcid{Beate Hetenyi}{0009-0006-0497-2327}. Structure, GitHub README and phrasing inspired by the \href{https://github.com/gesiscss/Jupyter4NFDI_survey_results}{Jupyter4NFDI User Survey Results} by Julian Kohne.}
-\newcommand{\doi}{10.xxxx/xxxx}
+\newcommand{\doi}{10.5281/zenodo.15394434}
 \newcommand{\version}{1.0}
 \newcommand{\licensename}{CC0 1.0 Universal}
 \newcommand{\licenseuri}{https://creativecommons.org/publicdomain/zero/1.0/}
@@ -37,8 +39,11 @@
 \date{\thedate}
 \title{\thetitle}
 \subtitle{Deliverable 2.2}
-
+%\RedeclareSectionCommand[beforeskip=25pt]{chapter}% less space above chapter
+%\setlength{\textfloatsep}{100cm}
+%\usepackage{printlen}
 \begin{document}
+%\uselengthunit{in}\printlength\textwidth%uncomment to determine optional figure width in inches for pyplot
 
 \maketitle
 \imprint
@@ -55,7 +60,7 @@ In total, 140 people started the survey and 51 finished it between 03 March 2025
 Of the 26 consortia, 23 had at least one representative answer the survey, with no answer from MaRDI, NFDI4Energy and NFDIxCS.
 Within their consortia, participants fulfill various roles, but mostly management, research and software development distantly followed by administator roles and a very low amount of data stewards.
 To get more users, software is disseminated by means of scientific publications closely followed by web pages and with more distance by social media.
-To describe research software, \ac{CFF} is a clear favourite but Zenodo.json and CodeMeta are used as well.
+To describe research software, the \acf{CFF} is a clear favourite but Zenodo.json and CodeMeta are used as well.
 
 Regarding research software market places, answers were nearly tied in a three-way split given in close order:
 The first group has plans to build or use one but nothing concrete yet.
@@ -80,6 +85,7 @@ All these rankings are based both on individual responses as well as those norma
 %\acro{RSE}{Research Software Engineering}
 \acro{RSE}{Research Software Encyclopedia}
 \acro{BERD}{(Big) Data in Business, Economics, and Related Research}
+\acro{CC}{Creative Commons}
 \acro{CFF}{Citation File Format}
 \acro{GHGA}{German Human Genome-Phenome Archive}
 \acro{MaRDI}{Mathematical Research Data Initiative}
@@ -88,7 +94,7 @@ All these rankings are based both on individual responses as well as those norma
 \acro{FAIRmat}[FAIRmat]{FAIR data infrastructure for condensed-matter physics and the chemical physics of solids}
 \acro{FAIRagro}[FAIRagro]{FAIR research data management system for the agrosystems research community}
 \end{acronym}
-\acused{NFDI}
+%\acused{*}
 
 \setcounter{tocdepth}{1}% no subsection in TOC
 \tableofcontents
@@ -212,7 +218,7 @@ Ideally, there should be identical answers within each consortium but this isn't
 However the non-normalized values also shouldn't be discounted because if we assume participation is correlated with consortium size (or expressed in another way the probability of answering is not correlated by the consortium), then we can just treat the non-normalized values as samples from the whole of NFDI and the answers as based on the individual practises.
 For example, if persons $A$ and $B$ both belong to consortium $C$, and $A$ answers \emph{GitHub} and $B$ answers \emph{GitLab} to the source code question, then this doesn't need to mean that one got the answer wrong, just that there is no single answer that is valid for all people in that consortium.
 Ultimately, the final rankings between base and normalized answers vary very little, so in the rest of this report they are both shown without further comments on or differentiation by normalization.
-See the JuypterLab notebook \texttt{results.ipynb} for complete normalization, plotting and table generation code and the following snippet for the normalization core code:
+See the JuypterLab notebook \href{https://github.com/KonradHoeffner/softwaresurvey/blob/master/results.ipynb}{results.ipynb} for complete normalization, plotting and table generation code and the following snippet for the normalization core code:
 %\Cref{tab:questions} provides a list of all posed questions.
 \lstset{
 language=Python,
@@ -221,24 +227,25 @@ basicstyle=\ttfamily\footnotesize,
 breaklines=true,
 postbreak=\mbox{\textcolor{nfdiblue}{$\hookrightarrow$}\space}
 }
+\iffalse
 \begin{lstlisting}
-# if someone belongs to n consortia, count those
-# only as 1/n for correct normalization of the other columns
-# requires col_count("consortium","...") to be run first
+# if someone has n consortia, count only as 1/n for normalization
+# of other cols, requires col_count("consortium","...") first
 def cons_count_normalize():
   counts = defaultdict(int)
   for consortia in df["consortium"]:
     for consortium in consortia:
       counts[consortium] += len(consortia)
   return counts
-
+\end{lstlisting}
+\fi
+\begin{lstlisting}
 def col_count_normalize(prefix,title=None):
   counts = {}
   # aggregated consortium values
   # created by calling col_count("consortium",...) first
   cons = df["consortium"]
   title = codes[prefix]
-  
   normalized_counts = defaultdict(int)
   aggregated = df[prefix]
   for index, values in aggregated.items():
@@ -250,7 +257,7 @@ def col_count_normalize(prefix,title=None):
       # alternatively one could also assign a constant value
       if len(consortia)>0:
         weights = list(map(lambda c: 1/max(1,cons_count_normalized[c]),consortia))
-        # results get a bit unintuitive if people are part of multiple consortia
+        # slightly unintuitive for people in multiple consortia
         weight = sum(weights)
         normalized_counts[value] += weight
   [...]
@@ -277,9 +284,9 @@ where $\mathrm{g}(r)$ is the number of consortia that r belongs to.
 %\[ c_n = \sum_{r \in R}^{} \]
 \fi
 
-
-\section{Answers}
-Answer options and answer distributions are shown below.
+%\section{Answers}
+\noindent Answer options and responses are shown as in the following.
+%Question titles are partly abbreviated, see \cref{tab:questions} for the full titles.
 
 %\subsection{Consortium and Role}\label{consortium-and-role}
 \section{Consortium}
@@ -330,7 +337,7 @@ Free form \emph{other} answers:
 \item Storage4PUNCH
 \end{itemize}
 
-\newpage
+\clearpage
 \section{Role}
 
 \question{What are your roles in the consortium?}
@@ -346,38 +353,41 @@ Please choose \emph{all} that apply:
 \item Other: \otherbox
 \end{answers}
 
-\begin{figure}[h!]
-\caption{What are your roles in the consortium?}
-\label{fig:role}
-\includegraphics[width=\textwidth]{plot/role.pdf}
-\end{figure}
-
-\begin{figure}[h!]
-\caption{What are your roles in the consortium? (normalized)}
-\label{fig:role_n}
-\includegraphics[width=\textwidth]{plot/role_n.pdf}
-\end{figure}
-
-\begin{table}
-\caption{Role pairs.}
-\label{tab:role_pairs}
-\input{table_role_pairs.tex}
-\end{table}
-
-\begin{table}
-\caption{Role combinations.}
-\label{tab:role_combinations}
-\input{table_role_combinations.tex}
-\end{table}
-
 Free form \emph{other} answers:
 \begin{itemize}
 \item Service Steward
 \item Technical Advisory Board member
 \item Data Publisher
 \end{itemize}
+\clearpage
+
+\begin{figure}[h!]
+\caption{What are your roles in the consortium?}
+\label{fig:role}
+\includegraphics[width=0.8\textwidth]{plot/role.pdf}
+\end{figure}
+
+\begin{figure}[h!]
+\caption{What are your roles in the consortium? (normalized)}
+\label{fig:role_n}
+\includegraphics[width=0.8\textwidth]{plot/role_n.pdf}
+\end{figure}
+
+\begin{table}[h!]
+\caption{Role pairs.}
+\label{tab:role_pairs}
+\input{table_role_pairs.tex}
+\end{table}
+
+\begin{table}[h!]
+\caption{Role combinations.}
+\label{tab:role_combinations}
+\input{table_role_combinations.tex}
+\end{table}
+
 
 %\subsection{Main}\label{main}
+\clearpage
 \section{Solutions}
 \question{Which solutions and plans does your consortium have regarding research software marketplaces?}
 
@@ -396,19 +406,8 @@ Please choose \emph{all} that apply and provide a comment:
 Feel free to elaborate about your existing solutions in the text fields
 next to the answers.
 
-\begin{figure}[h!]
-\caption{Which solutions and plans does your consortium have regarding research software marketplaces?}
-\label{fig:solutions}
-\includegraphics[width=\textwidth]{plot/solutions.pdf}
-\end{figure}
-
-\begin{figure}[h!]
-\caption{Which solutions and plans does your consortium have regarding research software marketplaces? (normalized)}
-\label{fig:solutions_n}
-\includegraphics[width=\textwidth]{plot/solutions_n.pdf}
-\end{figure}
-
-Free form comments:
+\paragraph{}
+Free form \emph{comments}:
 \begin{itemize}
 \item Is on our forecast but no specific integration plan.
 \item Our software illustrates the design of an API. Maybe it can be used as a template for developers.
@@ -436,9 +435,24 @@ Free form comments:
 \item It does not go under 'Marketplace' but its Open Source and we're prepared to collaborate
 \end{itemize}
 
-\section{Sustainability}
-\question{How do you intend to ensure the sustainability (further development) of the services and software developed or utilized in your consortium?}
+\vspace{-1em}
+\begin{figure}[h!]
+\caption{Which solutions and plans does your consortium have regarding research software marketplaces?}
+\label{fig:solutions}
+\includegraphics[width=0.55\textwidth]{plot/solutions.pdf}
+\end{figure}
 
+\vspace{-2em}
+\begin{figure}[h!]
+\caption{Which solutions and plans does your consortium have regarding research software marketplaces? (normalized)}
+\label{fig:solutions_n}
+\includegraphics[width=0.55\textwidth]{plot/solutions_n.pdf}
+\end{figure}
+
+\clearpage
+\section{Sustainability}
+%\question{How do you intend to ensure the sustainability (further development) of the services and software developed or utilized in your consortium?}
+\question{How do you intend to ensure the sustainability (maintaining usability and further development) choice of the services and software developed or utilized with in your consortium?}
 Please choose \emph{all} that apply:
 
 \begin{answers}
@@ -483,7 +497,7 @@ Free form \emph{other} answers:
 \item But that's of course not true for all software; but software that already existed before punch4nfdi started is likely to be continued
 \end{itemize}
 
-
+\clearpage
 \section{Dissemination}
 \question{How do you disseminate your software to get more users?}\label{how-do-you-disseminate-your-software-to-get-more-users}
 Please choose \emph{all} that apply:
@@ -494,18 +508,6 @@ Please choose \emph{all} that apply:
 \item Scientific publication
 \item Other: \otherbox
 \end{answers}
-
-\begin{figure}[h!]
-\caption{How do you disseminate your software to get more users?}
-\label{fig:disseminate}
-\includegraphics[width=\textwidth]{plot/disseminate.pdf}
-\end{figure}
-
-\begin{figure}[h!]
-\caption{How do you disseminate your software to get more users? (normalized)}
-\label{fig:disseminate_n}
-\includegraphics[width=\textwidth]{plot/disseminate_n.pdf}
-\end{figure}
 
 Free form \emph{other} answers:
 \begin{itemize}
@@ -524,8 +526,21 @@ Free form \emph{other} answers:
 \item Annual User Workshops
 \end{itemize}
 
+\begin{figure}[h!]
+\caption{How do you disseminate your software to get more users?}
+\label{fig:disseminate}
+\includegraphics[width=0.8\textwidth]{plot/disseminate.pdf}
+\end{figure}
+
+\begin{figure}[h!]
+\caption{How do you disseminate your software to get more users? (normalized)}
+\label{fig:disseminate_n}
+\includegraphics[width=0.8\textwidth]{plot/disseminate_n.pdf}
+\end{figure}
+
+\clearpage
 \section{Metadata}
-\question{Which metadata formats do you describe your research software with (if any)?}\label{which-metadata-formats-do-you-describe-your-research-software-with-if-any}
+\question{Which metadata formats do you describe your research software with\\(if any)?}\label{which-metadata-formats-do-you-describe-your-research-software-with-if-any}
 Please choose \emph{all} that apply:
 
 \begin{answers}
@@ -535,21 +550,11 @@ Please choose \emph{all} that apply:
 \item Other: \otherbox
 \end{answers}
 
-\begin{figure}[h!]
-\caption{Which metadata formats do you describe your research software with (if any)?}
-\label{fig:metadata}
-\includegraphics[width=\textwidth]{plot/metadata.pdf}
-\end{figure}
-
-\begin{figure}[h!]
-\caption{Which metadata formats do you describe your research software with (if any)? (normalized)}
-\label{fig:metadata_n}
-\includegraphics[width=\textwidth]{plot/metadata_n.pdf}
-\end{figure}
-
+%\noindent\paragraph{}
+\vspace{0.1em}
 Free form \emph{other} answers:
 \begin{itemize}
-\item looking at \url{https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE}
+\item looking at\\\url{https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE}
 \item unsure, as I am not involved in the actual development
 \item other discipline specific sidecar files, dep5, oer metadata
 \item Software-specific documetnation (e.g. R Package documentation using roxygen)
@@ -563,11 +568,24 @@ Free form \emph{other} answers:
 \item GitHub
 \end{itemize}
 
+\begin{figure}[h!]
+\caption{Which metadata formats do you describe your research software with (if any)?}
+\label{fig:metadata}
+\includegraphics[width=0.65\textwidth]{plot/metadata.pdf}
+\end{figure}
 
+\begin{figure}[h!]
+\caption{Which metadata formats do you describe your research software with (if any)? (normalized)}
+\label{fig:metadata_n}
+\includegraphics[width=0.65\textwidth]{plot/metadata_n.pdf}
+\end{figure}
+
+\clearpage
 \section{Ontologies}
 \question{If you use controlled vocabularies, ontologies or knowledge graphs to describe your research software, please list them below (separated via commas, if multiple).}
 Please write your answer here: \otherbox
 
+\noindent\paragraph{}
 Free form \emph{other} answers:
 \begin{itemize}
 \item Whatever is used by established formats (ORCID, ROR, DCT).
@@ -583,6 +601,7 @@ Free form \emph{other} answers:
 \item data management, FAIR, storage, data access, long-term archival, open-data
 \end{itemize}
 
+\clearpage
 \section{Source Code}
 \question{Where do you publish your software and its source code?}
 Please choose \emph{all} that apply:
@@ -596,18 +615,6 @@ Please choose \emph{all} that apply:
 \item Other: \otherbox
 \end{answers}
 
-\begin{figure}[h!]
-\caption{Where do you publish your software and its source code?}
-\label{fig:sourcecode}
-\includegraphics[width=\textwidth]{plot/sourcecode.pdf}
-\end{figure}
-
-\begin{figure}[h!]
-\caption{Where do you publish your software and its source code? (normalized)}
-\label{fig:sourcecode_n}
-\includegraphics[width=\textwidth]{plot/sourcecode_n.pdf}
-\end{figure}
-
 Free form \emph{other} answers:
 \begin{itemize}
 \item Approaches may differ depending on service
@@ -618,7 +625,21 @@ Free form \emph{other} answers:
 \item GH-Repo linked with Zenodo
 \end{itemize}
 
-\subsection{Final Questions}\label{final-questions}
+\clearpage
+\begin{figure}[h!]
+\caption{Where do you publish your software and its source code?}
+\label{fig:sourcecode}
+\includegraphics[width=0.7\textwidth]{plot/sourcecode.pdf}
+\end{figure}
+
+\begin{figure}[h!]
+\caption{Where do you publish your software and its source code?\\(normalized)}
+\label{fig:sourcecode_n}
+\includegraphics[width=0.7\textwidth]{plot/sourcecode_n.pdf}
+\end{figure}
+
+\clearpage
+\section{Final Questions}\label{final-questions}
 
 \question{In case you cannot answer some of the questions for your consortium and you know someone who can, please give us their email address below.}
 
