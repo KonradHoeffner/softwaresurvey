@@ -1,21 +1,8 @@
-UNDER CONSTRUCTION, WILL BE MOVED
-
-# nfdi.software Software Marketplace Survey Results
-
-## Overview
-
-## Survey Information and Participants
-
-## Summary
-
-## Detailed Results
+# Descriptive review of already existing solutions, plans and policies regarding software marketplaces in NFDI consortia
 
 ## Licensing
 
 We waive all copyright under the CC0 1.0 license but if you reuse or refer to our results it would still be nice if you [cite](CITATION.cff) the deliverable.
-
-## Contact
-
 
 ---
 
